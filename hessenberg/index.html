@@ -6,23 +6,29 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="On the benefits of Hessenberg Sparse Matrices">
       
       
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="prev" href="../healthcare/">
+      
+      
+        <link rel="next" href="../multihead_attention/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Mike Brodie Research Blog</title>
+        <title>Sparse Matrices - Mike Brodie Research Blog</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -38,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#sparse-matrices" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -78,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Mike Brodie Research Blog" class="md-header__button md-logo" aria-label="Mike Brodie Research Blog" data-md-component="logo">
+    <a href=".." title="Mike Brodie Research Blog" class="md-header__button md-logo" aria-label="Mike Brodie Research Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -97,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Sparse Matrices
             
           </span>
         </div>
@@ -190,7 +201,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Mike Brodie Research Blog" class="md-nav__button md-logo" aria-label="Mike Brodie Research Blog" data-md-component="logo">
+    <a href=".." title="Mike Brodie Research Blog" class="md-nav__button md-logo" aria-label="Mike Brodie Research Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -209,7 +220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Home
       </a>
     </li>
@@ -224,7 +235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/bert/" class="md-nav__link">
+      <a href="../bert/" class="md-nav__link">
         BERT: Bidirectional Encoder Representations from Transformers
       </a>
     </li>
@@ -239,7 +250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/broadcasting/" class="md-nav__link">
+      <a href="../broadcasting/" class="md-nav__link">
         Broadcasting in PyTorch
       </a>
     </li>
@@ -254,7 +265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cnn_v_transformer/" class="md-nav__link">
+      <a href="../cnn_v_transformer/" class="md-nav__link">
         Transformers vs. Convolutional Neural Networks
       </a>
     </li>
@@ -269,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/healthcare/" class="md-nav__link">
+      <a href="../healthcare/" class="md-nav__link">
         GenAI in Healthcare
       </a>
     </li>
@@ -282,11 +293,66 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/hessenberg/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Sparse Matrices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Sparse Matrices
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hessenberg-matrix" class="md-nav__link">
+    Hessenberg Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    Use Cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    Advantages
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -299,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/multihead_attention/" class="md-nav__link">
+      <a href="../multihead_attention/" class="md-nav__link">
         Exploring Tensor Broadcasting in MultiHead Attention
       </a>
     </li>
@@ -314,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/transformer/" class="md-nav__link">
+      <a href="../transformer/" class="md-nav__link">
         Transformer
       </a>
     </li>
@@ -338,6 +404,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hessenberg-matrix" class="md-nav__link">
+    Hessenberg Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    Use Cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    Advantages
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -349,8 +446,27 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="sparse-matrices">Sparse Matrices</h1>
+<h2 id="hessenberg-matrix">Hessenberg Matrix</h2>
+<p>A Hessenberg Matrix is a sparse matrix with the first few rows and columns having non-zero elements, and all other elements being zeroes. It is often used in computational linear algebra and has valuable applications in Machine Learning. </p>
+<h2 id="use-cases">Use Cases</h2>
+<p>Some use cases include:
+1. Solving Linear Equations: Hessenberg matrices can be used to represent systems of linear equations which are then solved efficiently using iterative methods.
+2. Eigenvalue Problems: Hessenberg matrices can be employed to solve eigenvalue problems, especially when applied to large-scale applications in Machine Learning where the size of the matrix can be significantly reduced without losing its essential characteristics.
+3. Krylov Subspace Methods: These techniques are often used for solving linear equations and eigenvalue problems. Hessenberg matrices provide a natural framework for implementing these methods, making them more efficient and accurate in many applications.
+4. Matrix Exponential Approximation: In some Machine Learning algorithms like neural networks or dynamical systems, the matrix exponential plays a crucial role. By representing the matrices as Hessenberg forms, it becomes much easier to approximate their exponentials.
+5. Sparse Matrix Techniques: Many large-scale problems in Machine Learning involve handling sparse matrices effectively. Hessenberg form is particularly useful for such scenarios since it preserves sparsity patterns and allows efficient algorithms for solving linear equations and eigenvalue problems to be implemented.</p>
+<h2 id="advantages">Advantages</h2>
+<p>Sparsity makes it easier to use a Hessenberg Matrix for solving linear equations by reducing the number of non-zero elements in the matrix. This results in a more efficient and faster solution process. A sparse Hessenberg Matrix contains only a few non-zero elements below its subdiagonal, which can significantly decrease storage requirements and computational complexity when compared to a dense matrix. By focusing on these non-zero elements during the solving process, one can take advantage of the structure in the matrix to solve linear equations more efficiently using algorithms designed for sparse matrices.</p>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -382,10 +498,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["content.code.copy"], "search": "/assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

@@ -6,25 +6,29 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Explanation and simple example of PyTorch tensor broadcasting">
       
       
       
       
-        <link rel="next" href="bert/">
+        <link rel="prev" href="../bert/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+      
+        <link rel="next" href="../cnn_v_transformer/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Mike Brodie Research Blog</title>
+        <title>Broadcasting in PyTorch - Mike Brodie Research Blog</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -40,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#broadcasting-rules-in-pytorch" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -80,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Mike Brodie Research Blog" class="md-header__button md-logo" aria-label="Mike Brodie Research Blog" data-md-component="logo">
+    <a href=".." title="Mike Brodie Research Blog" class="md-header__button md-logo" aria-label="Mike Brodie Research Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -99,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Broadcasting in PyTorch
             
           </span>
         </div>
@@ -192,7 +201,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Mike Brodie Research Blog" class="md-nav__button md-logo" aria-label="Mike Brodie Research Blog" data-md-component="logo">
+    <a href=".." title="Mike Brodie Research Blog" class="md-nav__button md-logo" aria-label="Mike Brodie Research Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -209,19 +218,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         Home
       </a>
-      
     </li>
   
 
@@ -234,7 +235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="bert/" class="md-nav__link">
+      <a href="../bert/" class="md-nav__link">
         BERT: Bidirectional Encoder Representations from Transformers
       </a>
     </li>
@@ -247,11 +248,66 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="broadcasting/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Broadcasting in PyTorch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Broadcasting in PyTorch
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrix-multiplication" class="md-nav__link">
+    Matrix Multiplication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -264,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cnn_v_transformer/" class="md-nav__link">
+      <a href="../cnn_v_transformer/" class="md-nav__link">
         Transformers vs. Convolutional Neural Networks
       </a>
     </li>
@@ -279,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="healthcare/" class="md-nav__link">
+      <a href="../healthcare/" class="md-nav__link">
         GenAI in Healthcare
       </a>
     </li>
@@ -294,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="multihead_attention/" class="md-nav__link">
+      <a href="../multihead_attention/" class="md-nav__link">
         Exploring Tensor Broadcasting in MultiHead Attention
       </a>
     </li>
@@ -309,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="transformer/" class="md-nav__link">
+      <a href="../transformer/" class="md-nav__link">
         Transformer
       </a>
     </li>
@@ -333,6 +389,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrix-multiplication" class="md-nav__link">
+    Matrix Multiplication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -347,41 +434,16 @@
                   
 
 
-<section class="mb-8">
-  <div class="mb-6">
-    <h1
-      class="font-bold text-text-heading text-center text-4xl md:text-5xl pt-4 pb-2 overflow-hidden"
-    >
-      <span
-        class="
-            bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%]
-            from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue
-        "
-      >
-        Mike Brodie 
-      </span>
-    </h1>
-    <p class="text-center text-2xl pb-4">Sr. Data Scientist @ Ancestry</p>
-  </div>
-  <div>
-    <p class="mb-5">
-            <ul>
-                <li>
-                 Lead Data Scientist on numerous high-impact projects involving Computer Vision, Natural Language Processing, and state-of-the-art Transformer models at scale. 
-                 </li>
-                <li>
-                 Significantly accelerated AIML-based record extraction at Ancestry, with my models producing <strong>24 billion</strong> new historical records added to Ancestry in 2023 alone. 
-                 </li>
-                <li>
-                 Granted multiple patents for my contributions to the field, and have had the privilege of working for companies such as Adobe and Apple. 
-                 </li>
-                <li>
-                 In addition to my industry experience, I have also taught a machine learning course as adjunct faculty at BYU.
-                 </li>
-            </ul>
-    </p>
-  </div>
-</section>
+<h1 id="broadcasting-rules-in-pytorch">Broadcasting Rules in PyTorch</h1>
+<p>In PyTorch, the broadcasting rules allow for element-wise operations between tensors of different shapes. In this case, the broadcasting rule is used to perform matrix multiplication between the tensors <code>a</code> and <code>b</code>.</p>
+<h2 id="example">Example</h2>
+<p>Let's consider two tensors <code>a</code> and <code>b</code> with shapes <code>(10, 3, 4, 5)</code> and <code>(10, 3, 4, 4)</code> respectively. When we perform matrix multiplication between <code>a</code> and <code>b</code>, the resulting tensor will have the same shape as <code>a</code>. This is because the broadcasting rules allow for the missing dimensions in <code>b</code> to be "filled in" with ones.
+For example, when we multiply the first two dimensions of <code>a</code> and <code>b</code> (i.e., the batch and channel dimensions), the resulting tensor will have shape <code>(10, 3, 4, 5)</code>. This is because the batch dimension of <code>a</code> (i.e., the first dimension with size 10) is broadcasted to match the batch dimension of <code>b</code> (i.e., the first dimension with size 10), and the channel dimension of <code>a</code> (i.e., the second dimension with size 3) is broadcasted to match the channel dimension of <code>b</code> (i.e., the second dimension with size 3).
+The broadcasting rules work in a similar way for the other two dimensions of <code>a</code> and <code>b</code> (i.e., the height and width dimensions). The resulting tensor will have the same shape as <code>a</code>, with the missing dimensions in <code>b</code> being "filled in" with ones.</p>
+<h2 id="matrix-multiplication">Matrix Multiplication</h2>
+<p>The matrix multiplication between <code>a</code> and <code>b</code> is possible because of the broadcasting rules in PyTorch, which allow for element-wise operations between tensors of different shapes. The resulting tensor will have the same shape as <code>a</code>, with the missing dimensions in <code>b</code> being "filled in" with ones.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In PyTorch, the broadcasting rules allow for element-wise operations between tensors of different shapes. This makes it possible to perform matrix multiplication between tensors with different shapes, as long as the shapes are compatible according to the broadcasting rules.</p>
 
 
 
@@ -419,10 +481,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

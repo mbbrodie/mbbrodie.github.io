@@ -14,7 +14,7 @@
         <link rel="prev" href="../healthcare/">
       
       
-        <link rel="next" href="../multihead_attention/">
+        <link rel="next" href="../layernorm/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
@@ -280,6 +280,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../consistency_encoder/" class="md-nav__link">
+        Consistency encoder
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../goleman/" class="md-nav__link">
+        Book Review - What Makes a Leader
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../healthcare/" class="md-nav__link">
         GenAI in Healthcare
       </a>
@@ -365,6 +395,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../layernorm/" class="md-nav__link">
+        Layernorm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../multihead_attention/" class="md-nav__link">
         Exploring Tensor Broadcasting in MultiHead Attention
       </a>
@@ -381,7 +426,7 @@
   
     <li class="md-nav__item">
       <a href="../transformer/" class="md-nav__link">
-        Transformer
+        Toy GPT example
       </a>
     </li>
   
@@ -453,12 +498,24 @@
 <h2 id="hessenberg-matrix">Hessenberg Matrix</h2>
 <p>A Hessenberg Matrix is a sparse matrix with the first few rows and columns having non-zero elements, and all other elements being zeroes. It is often used in computational linear algebra and has valuable applications in Machine Learning. </p>
 <h2 id="use-cases">Use Cases</h2>
-<p>Some use cases include:
-1. Solving Linear Equations: Hessenberg matrices can be used to represent systems of linear equations which are then solved efficiently using iterative methods.
-2. Eigenvalue Problems: Hessenberg matrices can be employed to solve eigenvalue problems, especially when applied to large-scale applications in Machine Learning where the size of the matrix can be significantly reduced without losing its essential characteristics.
-3. Krylov Subspace Methods: These techniques are often used for solving linear equations and eigenvalue problems. Hessenberg matrices provide a natural framework for implementing these methods, making them more efficient and accurate in many applications.
-4. Matrix Exponential Approximation: In some Machine Learning algorithms like neural networks or dynamical systems, the matrix exponential plays a crucial role. By representing the matrices as Hessenberg forms, it becomes much easier to approximate their exponentials.
-5. Sparse Matrix Techniques: Many large-scale problems in Machine Learning involve handling sparse matrices effectively. Hessenberg form is particularly useful for such scenarios since it preserves sparsity patterns and allows efficient algorithms for solving linear equations and eigenvalue problems to be implemented.</p>
+<p>Some use cases include:</p>
+<ol>
+<li>
+<p>Solving Linear Equations: Hessenberg matrices can be used to represent systems of linear equations which are then solved efficiently using iterative methods.</p>
+</li>
+<li>
+<p>Eigenvalue Problems: Hessenberg matrices can be employed to solve eigenvalue problems, especially when applied to large-scale applications in Machine Learning where the size of the matrix can be significantly reduced without losing its essential characteristics.</p>
+</li>
+<li>
+<p>Krylov Subspace Methods: These techniques are often used for solving linear equations and eigenvalue problems. Hessenberg matrices provide a natural framework for implementing these methods, making them more efficient and accurate in many applications.</p>
+</li>
+<li>
+<p>Matrix Exponential Approximation: In some Machine Learning algorithms like neural networks or dynamical systems, the matrix exponential plays a crucial role. By representing the matrices as Hessenberg forms, it becomes much easier to approximate their exponentials.</p>
+</li>
+<li>
+<p>Sparse Matrix Techniques: Many large-scale problems in Machine Learning involve handling sparse matrices effectively. Hessenberg form is particularly useful for such scenarios since it preserves sparsity patterns and allows efficient algorithms for solving linear equations and eigenvalue problems to be implemented.</p>
+</li>
+</ol>
 <h2 id="advantages">Advantages</h2>
 <p>Sparsity makes it easier to use a Hessenberg Matrix for solving linear equations by reducing the number of non-zero elements in the matrix. This results in a more efficient and faster solution process. A sparse Hessenberg Matrix contains only a few non-zero elements below its subdiagonal, which can significantly decrease storage requirements and computational complexity when compared to a dense matrix. By focusing on these non-zero elements during the solving process, one can take advantage of the structure in the matrix to solve linear equations more efficiently using algorithms designed for sparse matrices.</p>
 

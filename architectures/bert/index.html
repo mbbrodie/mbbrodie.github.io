@@ -6,23 +6,29 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="The use of AI in medical diagnosis and treatment">
       
       
       
       
-      <link rel="icon" href="/assets/mb.png">
+        <link rel="prev" href="../bart_for_summarization/">
+      
+      
+        <link rel="next" href="../cnn_v_transformer/">
+      
+      <link rel="icon" href="../../assets/mb.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Research Blog</title>
+        <title>BERT: Bidirectional Encoder Representations from Transformers - Research Blog</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -38,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#bert-bidirectional-encoder-representations-from-transformers" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -78,9 +89,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Research Blog" class="md-header__button md-logo" aria-label="Research Blog" data-md-component="logo">
+    <a href="../.." title="Research Blog" class="md-header__button md-logo" aria-label="Research Blog" data-md-component="logo">
       
-  <img src="/assets/mb.png" alt="logo">
+  <img src="../../assets/mb.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -96,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              BERT: Bidirectional Encoder Representations from Transformers
             
           </span>
         </div>
@@ -189,9 +200,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Research Blog" class="md-nav__button md-logo" aria-label="Research Blog" data-md-component="logo">
+    <a href="../.." title="Research Blog" class="md-nav__button md-logo" aria-label="Research Blog" data-md-component="logo">
       
-  <img src="/assets/mb.png" alt="logo">
+  <img src="../../assets/mb.png" alt="logo">
 
     </a>
     Research Blog
@@ -207,7 +218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -220,14 +231,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -236,7 +249,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Architectures
@@ -249,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/architectures/bart_for_summarization/" class="md-nav__link">
+      <a href="../bart_for_summarization/" class="md-nav__link">
         BART for Summarization
       </a>
     </li>
@@ -261,11 +274,80 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/architectures/bert/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          BERT: Bidirectional Encoder Representations from Transformers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         BERT: Bidirectional Encoder Representations from Transformers
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-points" class="md-nav__link">
+    Key Points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussion" class="md-nav__link">
+    Discussion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-attention" class="md-nav__link">
+    Self-attention
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -277,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/architectures/cnn_v_transformer/" class="md-nav__link">
+      <a href="../cnn_v_transformer/" class="md-nav__link">
         Transformers vs. Convolutional Neural Networks
       </a>
     </li>
@@ -291,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/architectures/layernorm/" class="md-nav__link">
+      <a href="../layernorm/" class="md-nav__link">
         Layernorm
       </a>
     </li>
@@ -305,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/architectures/multihead_attention/" class="md-nav__link">
+      <a href="../multihead_attention/" class="md-nav__link">
         Exploring Tensor Broadcasting in MultiHead Attention
       </a>
     </li>
@@ -319,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/architectures/transformer/" class="md-nav__link">
+      <a href="../transformer/" class="md-nav__link">
         Toy GPT example
       </a>
     </li>
@@ -368,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/explorations/bigfile/" class="md-nav__link">
+      <a href="../../explorations/bigfile/" class="md-nav__link">
         Order of Magnitude Faster Image Loading in Pytorch
       </a>
     </li>
@@ -382,7 +464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/explorations/broadcasting/" class="md-nav__link">
+      <a href="../../explorations/broadcasting/" class="md-nav__link">
         Broadcasting in PyTorch
       </a>
     </li>
@@ -396,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/explorations/consistency_encoder/" class="md-nav__link">
+      <a href="../../explorations/consistency_encoder/" class="md-nav__link">
         Consistency encoder
       </a>
     </li>
@@ -410,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/explorations/healthcare/" class="md-nav__link">
+      <a href="../../explorations/healthcare/" class="md-nav__link">
         GenAI in Healthcare
       </a>
     </li>
@@ -424,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/explorations/hessenberg/" class="md-nav__link">
+      <a href="../../explorations/hessenberg/" class="md-nav__link">
         Sparse Matrices
       </a>
     </li>
@@ -438,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/explorations/labeling/" class="md-nav__link">
+      <a href="../../explorations/labeling/" class="md-nav__link">
         Cutting Labeling Costs by 90%
       </a>
     </li>
@@ -487,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Advances%20in%20Generative%20Models%3A%20GANs%2C%20VAEs%2C%20and%20Beyond/" class="md-nav__link">
+      <a href="../../future/Advances%20in%20Generative%20Models%3A%20GANs%2C%20VAEs%2C%20and%20Beyond/" class="md-nav__link">
         Advances in Generative Models: GANs, VAEs, and Beyond
       </a>
     </li>
@@ -501,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Advances%20in%20Neural%20Architecture%20Search%20%28NAS%29%20for%20Automating%20the%20Design%20of%20ML%20Models/" class="md-nav__link">
+      <a href="../../future/Advances%20in%20Neural%20Architecture%20Search%20%28NAS%29%20for%20Automating%20the%20Design%20of%20ML%20Models/" class="md-nav__link">
         Advances in Neural Architecture Search (NAS) for Automating the Design of ML Models
       </a>
     </li>
@@ -515,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Advances%20in%20Neural%20Network%20Compression%20Techniques%20for%20Efficient%20Inference%20on%20Resource-Constrained%20Devices/" class="md-nav__link">
+      <a href="../../future/Advances%20in%20Neural%20Network%20Compression%20Techniques%20for%20Efficient%20Inference%20on%20Resource-Constrained%20Devices/" class="md-nav__link">
         Advances in Neural Network Compression Techniques for Efficient Inference on Resource-Constrained Devices
       </a>
     </li>
@@ -529,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Advances%20in%20Sparse%20Machine%20Learning%20Techniques%20for%20Efficient%20Feature%20Selection%20and%20Model%20Training/" class="md-nav__link">
+      <a href="../../future/Advances%20in%20Sparse%20Machine%20Learning%20Techniques%20for%20Efficient%20Feature%20Selection%20and%20Model%20Training/" class="md-nav__link">
         Sparse Machine Learning Techniques: Enhancing Feature Selection and Model Training Efficiency
       </a>
     </li>
@@ -543,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Advances%20in%20Unsupervised%20Learning%20Techniques%20for%20Discovering%20Structure%20and%20Patterns%20in%20Large%20Datasets%20without%20Labeled%20Data/" class="md-nav__link">
+      <a href="../../future/Advances%20in%20Unsupervised%20Learning%20Techniques%20for%20Discovering%20Structure%20and%20Patterns%20in%20Large%20Datasets%20without%20Labeled%20Data/" class="md-nav__link">
         Unleashing the Power of Unsupervised Learning: Discovering Structure and Patterns in Large Datasets
       </a>
     </li>
@@ -557,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Analyzing%20Bias%20in%20Machine%20Learning%3A%20Challenges%20and%20Approaches%20to%20Fairness%20in%20Algorithms/" class="md-nav__link">
+      <a href="../../future/Analyzing%20Bias%20in%20Machine%20Learning%3A%20Challenges%20and%20Approaches%20to%20Fairness%20in%20Algorithms/" class="md-nav__link">
         Analyzing Bias in Machine Learning: Challenges and Approaches to Fairness in Algorithms
       </a>
     </li>
@@ -571,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Analyzing%20the%20Impact%20of%20AI%20on%20Society%3A%20Ethical%2C%20Economic%2C%20and%20Social%20Implications/" class="md-nav__link">
+      <a href="../../future/Analyzing%20the%20Impact%20of%20AI%20on%20Society%3A%20Ethical%2C%20Economic%2C%20and%20Social%20Implications/" class="md-nav__link">
         Analyzing the Impact of AI on Society: Ethical, Economic, and Social Implications
       </a>
     </li>
@@ -585,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Analyzing%20the%20Impact%20of%20Data%20Quality%20on%20Machine%20Learning%20Performance/" class="md-nav__link">
+      <a href="../../future/Analyzing%20the%20Impact%20of%20Data%20Quality%20on%20Machine%20Learning%20Performance/" class="md-nav__link">
         Analyzing the Impact of Data Quality on Machine Learning Performance
       </a>
     </li>
@@ -599,7 +681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Analyzing%20the%20Interplay%20between%20Machine%20Learning%20and%20Evolutionary%20Algorithms%20for%20Optimal%20Problem%20Solving/" class="md-nav__link">
+      <a href="../../future/Analyzing%20the%20Interplay%20between%20Machine%20Learning%20and%20Evolutionary%20Algorithms%20for%20Optimal%20Problem%20Solving/" class="md-nav__link">
         Understanding the Synergistic Relationship between Machine Learning and Evolutionary Algorithms for Optimal Problem Solving
       </a>
     </li>
@@ -613,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Analyzing%20the%20Potential%20of%20Bayesian%20Neural%20Networks%20for%20Improved%20Robustness%20and%20Interpretability%20in%20ML%20Models/" class="md-nav__link">
+      <a href="../../future/Analyzing%20the%20Potential%20of%20Bayesian%20Neural%20Networks%20for%20Improved%20Robustness%20and%20Interpretability%20in%20ML%20Models/" class="md-nav__link">
         Bayesian Neural Networks: The Future of Improved Robustness and Interpretability in Machine Learning Models
       </a>
     </li>
@@ -627,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Analyzing%20the%20Potential%20of%20Neural%20Ordinary%20Differential%20Equations%20%28NODEs%29%20in%20Machine%20Learning/" class="md-nav__link">
+      <a href="../../future/Analyzing%20the%20Potential%20of%20Neural%20Ordinary%20Differential%20Equations%20%28NODEs%29%20in%20Machine%20Learning/" class="md-nav__link">
         Exploring the Potential of Neural Ordinary Differential Equations (NODEs) in Machine Learning
       </a>
     </li>
@@ -641,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Combining%20Machine%20Learning%20with%20Human%20Expertise%20for%20Improved%20Decision%20Making/" class="md-nav__link">
+      <a href="../../future/Combining%20Machine%20Learning%20with%20Human%20Expertise%20for%20Improved%20Decision%20Making/" class="md-nav__link">
         Harnessing the Power of Machine Learning and Human Expertise for Enhanced Decision-Making
       </a>
     </li>
@@ -655,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Deep%20Learning%20Architectures%20for%20Efficient%20Neural%20Network%20Training%20and%20Inference/" class="md-nav__link">
+      <a href="../../future/Deep%20Learning%20Architectures%20for%20Efficient%20Neural%20Network%20Training%20and%20Inference/" class="md-nav__link">
         Deep Learning Architectures for Efficient Neural Network Training and Inference
       </a>
     </li>
@@ -669,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Deep%20Learning%20in%20Time%20Series%20Analysis%3A%20Applications%20in%20Stock%20Market%20Forecasting%2C%20Weather%20Prediction%2C%20and%20Traffic%20Management/" class="md-nav__link">
+      <a href="../../future/Deep%20Learning%20in%20Time%20Series%20Analysis%3A%20Applications%20in%20Stock%20Market%20Forecasting%2C%20Weather%20Prediction%2C%20and%20Traffic%20Management/" class="md-nav__link">
         Exploring Deep Learning in Time Series Analysis: Applications in Stock Market Forecasting, Weather Prediction, and Traffic Management
       </a>
     </li>
@@ -683,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Deep%20Reinforcement%20Learning%20for%20Robust%20Control%20of%20Autonomous%20Systems%3A%20Applications%20in%20Robotics%2C%20Manufacturing%2C%20and%20Transportation/" class="md-nav__link">
+      <a href="../../future/Deep%20Reinforcement%20Learning%20for%20Robust%20Control%20of%20Autonomous%20Systems%3A%20Applications%20in%20Robotics%2C%20Manufacturing%2C%20and%20Transportation/" class="md-nav__link">
         Deep Reinforcement Learning: The Future of Robust Control in Autonomous Systems
       </a>
     </li>
@@ -697,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Developing%20Explainable%20AI%3A%20Enhancing%20Transparency%2C%20Interpretability%2C%20and%20Trust%20in%20Machine%20Learning%20Models%20and%20Algorithms/" class="md-nav__link">
+      <a href="../../future/Developing%20Explainable%20AI%3A%20Enhancing%20Transparency%2C%20Interpretability%2C%20and%20Trust%20in%20Machine%20Learning%20Models%20and%20Algorithms/" class="md-nav__link">
         Exploring the Importance of Enhancing Transparency, Interpretability, and Trust in Machine Learning Models and Algorithms
       </a>
     </li>
@@ -711,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Developing%20ML-based%20Image%20and%20Video%20Analytics%20for%20Surveillance%2C%20Autonomous%20Vehicles%2C%20and%20Robotics%20Applications/" class="md-nav__link">
+      <a href="../../future/Developing%20ML-based%20Image%20and%20Video%20Analytics%20for%20Surveillance%2C%20Autonomous%20Vehicles%2C%20and%20Robotics%20Applications/" class="md-nav__link">
         Harnessing the Power of Machine Learning for Enhanced Image and Video Analytics in Surveillance, Autonomous Vehicles, and Robotics Applications
       </a>
     </li>
@@ -725,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Developing%20Trustworthy%20AI%20Systems%3A%20Ethical%20Considerations%20and%20Governance/" class="md-nav__link">
+      <a href="../../future/Developing%20Trustworthy%20AI%20Systems%3A%20Ethical%20Considerations%20and%20Governance/" class="md-nav__link">
         Developing Trustworthy AI Systems: Balancing Ethical Considerations and Governance
       </a>
     </li>
@@ -739,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Enhancing%20ML%20Models%20with%20Transfer%20Learning%3A%20Case%20Studies%20in%20Different%20Domains/" class="md-nav__link">
+      <a href="../../future/Enhancing%20ML%20Models%20with%20Transfer%20Learning%3A%20Case%20Studies%20in%20Different%20Domains/" class="md-nav__link">
         Enhancing ML Models with Transfer Learning: Case Studies in Different Domains
       </a>
     </li>
@@ -753,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Enhancing%20Robustness%20in%20Neural%20Networks%20to%20Adversarial%20Examples/" class="md-nav__link">
+      <a href="../../future/Enhancing%20Robustness%20in%20Neural%20Networks%20to%20Adversarial%20Examples/" class="md-nav__link">
         Enhancing Robustness in Neural Networks to Adversarial Examples
       </a>
     </li>
@@ -767,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Explainable%20AI%3A%20Towards%20Transparent%20and%20Interpretable%20Machine%20Learning%20Models/" class="md-nav__link">
+      <a href="../../future/Explainable%20AI%3A%20Towards%20Transparent%20and%20Interpretable%20Machine%20Learning%20Models/" class="md-nav__link">
         Explainable AI: Towards Transparent and Interpretable Machine Learning Models
       </a>
     </li>
@@ -781,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Exploring%20Active%20Learning%20Techniques%20for%20Efficient%20Data%20Labeling%20and%20Model%20Training%20in%20ML%20Workflows/" class="md-nav__link">
+      <a href="../../future/Exploring%20Active%20Learning%20Techniques%20for%20Efficient%20Data%20Labeling%20and%20Model%20Training%20in%20ML%20Workflows/" class="md-nav__link">
         Exploring Active Learning Techniques for Efficient Data Labeling and Model Training in ML Workflows
       </a>
     </li>
@@ -795,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Exploring%20Edge%20Computing%20for%20Distributed%20Machine%20Learning%20in%20IoT%20Applications/" class="md-nav__link">
+      <a href="../../future/Exploring%20Edge%20Computing%20for%20Distributed%20Machine%20Learning%20in%20IoT%20Applications/" class="md-nav__link">
         Exploring Edge Computing for Distributed Machine Learning in IoT Applications
       </a>
     </li>
@@ -809,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Exploring%20Hybrid%20ML%20Algorithms%3A%20Combining%20the%20Strengths%20of%20Different%20Paradigms%20for%20Enhanced%20Performance/" class="md-nav__link">
+      <a href="../../future/Exploring%20Hybrid%20ML%20Algorithms%3A%20Combining%20the%20Strengths%20of%20Different%20Paradigms%20for%20Enhanced%20Performance/" class="md-nav__link">
         Exploring Hybrid ML Algorithms: Combining the Strengths of Different Paradigms for Enhanced Performance
       </a>
     </li>
@@ -823,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Exploring%20Multi-Task%20Learning%20for%20Improved%20Generalization%20and%20Efficiency%20across%20Related%20Tasks%20within%20AI%20Workflows/" class="md-nav__link">
+      <a href="../../future/Exploring%20Multi-Task%20Learning%20for%20Improved%20Generalization%20and%20Efficiency%20across%20Related%20Tasks%20within%20AI%20Workflows/" class="md-nav__link">
         Unleashing the Power of Multi-Task Learning for Enhanced Generalization and Efficiency in AI Workflows
       </a>
     </li>
@@ -837,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Exploring%20Novel%20Deep%20Learning%20Techniques%20for%20Natural%20Language%20Understanding%2C%20Generation%2C%20and%20Dialogue%20Systems/" class="md-nav__link">
+      <a href="../../future/Exploring%20Novel%20Deep%20Learning%20Techniques%20for%20Natural%20Language%20Understanding%2C%20Generation%2C%20and%20Dialogue%20Systems/" class="md-nav__link">
         Innovative Deep Learning Approaches for Natural Language Processing: Understanding, Generation, and Dialogue Systems
       </a>
     </li>
@@ -851,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Exploring%20Quantum%20Machine%20Learning%3A%20Harnessing%20the%20Power%20of%20Quantum%20Computing%20for%20Next-Generation%20AI%20Algorithms/" class="md-nav__link">
+      <a href="../../future/Exploring%20Quantum%20Machine%20Learning%3A%20Harnessing%20the%20Power%20of%20Quantum%20Computing%20for%20Next-Generation%20AI%20Algorithms/" class="md-nav__link">
         Exploring Quantum Machine Learning: Harnessing the Power of Quantum Computing for Next-Generation AI Algorithms
       </a>
     </li>
@@ -865,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Exploring%20the%20Potential%20of%20Federated%20Learning%20for%20Privacy-Preserving%20Machine%20Learning/" class="md-nav__link">
+      <a href="../../future/Exploring%20the%20Potential%20of%20Federated%20Learning%20for%20Privacy-Preserving%20Machine%20Learning/" class="md-nav__link">
         Unlocking the Potential of Federated Learning for Privacy-Preserving Machine Learning
       </a>
     </li>
@@ -879,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Machine%20Learning%20for%20Cybersecurity%3A%20Identifying%20Threats%2C%20Anomaly%20Detection%2C%20and%20Intrusion%20Detection%20Systems/" class="md-nav__link">
+      <a href="../../future/Machine%20Learning%20for%20Cybersecurity%3A%20Identifying%20Threats%2C%20Anomaly%20Detection%2C%20and%20Intrusion%20Detection%20Systems/" class="md-nav__link">
         Machine Learning for Cybersecurity: Identifying Threats, Anomaly Detection, and Intrusion Detection Systems
       </a>
     </li>
@@ -893,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Machine%20Learning%20for%20Energy-Efficient%20Computation%20and%20Data%20Storage/" class="md-nav__link">
+      <a href="../../future/Machine%20Learning%20for%20Energy-Efficient%20Computation%20and%20Data%20Storage/" class="md-nav__link">
         Machine Learning for Energy-Efficient Computation and Data Storage
       </a>
     </li>
@@ -907,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Machine%20Learning%20for%20Finance%3A%20Applications%20and%20Challenges%20in%20Stock%20Market%20Prediction/" class="md-nav__link">
+      <a href="../../future/Machine%20Learning%20for%20Finance%3A%20Applications%20and%20Challenges%20in%20Stock%20Market%20Prediction/" class="md-nav__link">
         Machine Learning for Finance: Applications and Challenges in Stock Market Prediction
       </a>
     </li>
@@ -921,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Machine%20Learning%20for%20Healthcare%3A%20Applications%20in%20Diagnostics%2C%20Drug%20Discovery%2C%20and%20Personalized%20Medicine/" class="md-nav__link">
+      <a href="../../future/Machine%20Learning%20for%20Healthcare%3A%20Applications%20in%20Diagnostics%2C%20Drug%20Discovery%2C%20and%20Personalized%20Medicine/" class="md-nav__link">
         Machine Learning for Healthcare: Applications in Diagnostics, Drug Discovery, and Personalized Medicine
       </a>
     </li>
@@ -935,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Machine%20Learning%20for%20Personalized%20Marketing%3A%20Enhancing%20Customer%20Experience%20with%20Predictive%20Analytics/" class="md-nav__link">
+      <a href="../../future/Machine%20Learning%20for%20Personalized%20Marketing%3A%20Enhancing%20Customer%20Experience%20with%20Predictive%20Analytics/" class="md-nav__link">
         Machine Learning for Personalized Marketing: Enhancing Customer Experience with Predictive Analytics
       </a>
     </li>
@@ -949,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Machine%20Learning%20for%20Personalized%20Medicine%3A%20Enhancing%20Diagnosis%2C%20Treatment%20Planning%2C%20and%20DrugDevelopment/" class="md-nav__link">
+      <a href="../../future/Machine%20Learning%20for%20Personalized%20Medicine%3A%20Enhancing%20Diagnosis%2C%20Treatment%20Planning%2C%20and%20DrugDevelopment/" class="md-nav__link">
         Machine Learning in Personalized Medicine: Revolutionizing Diagnosis, Treatment Planning, and Drug Development
       </a>
     </li>
@@ -963,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Privacy-Preserving%20Machine%20Learning%20Techniques%20for%20Sensitive%20Data%20Analysis/" class="md-nav__link">
+      <a href="../../future/Privacy-Preserving%20Machine%20Learning%20Techniques%20for%20Sensitive%20Data%20Analysis/" class="md-nav__link">
         Privacy-Preserving Machine Learning Techniques for Sensitive Data Analysis
       </a>
     </li>
@@ -977,7 +1059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Reinforcement%20Learning%20for%20Game%20Theory%3A%20Applications%2C%20Challenges%2C%20and%20Opportunities%20in%20Multi-Agent%20Systems/" class="md-nav__link">
+      <a href="../../future/Reinforcement%20Learning%20for%20Game%20Theory%3A%20Applications%2C%20Challenges%2C%20and%20Opportunities%20in%20Multi-Agent%20Systems/" class="md-nav__link">
         Reinforcement Learning for Game Theory: A Comprehensive Overview
       </a>
     </li>
@@ -991,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Reinforcement%20Learning%20for%20Multi-Agent%20Systems%3A%20Challenges%2C%20Applications%2C%20and%20Future%20Directions/" class="md-nav__link">
+      <a href="../../future/Reinforcement%20Learning%20for%20Multi-Agent%20Systems%3A%20Challenges%2C%20Applications%2C%20and%20Future%20Directions/" class="md-nav__link">
         Reinforcement Learning for Multi-Agent Systems: Challenges, Applications, and Future Directions
       </a>
     </li>
@@ -1005,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Reinforcement%20Learning%20in%20Robotics%3A%20Advances%20in%20Locomotion%2C%20Manipulation%2C%20and%20Perception/" class="md-nav__link">
+      <a href="../../future/Reinforcement%20Learning%20in%20Robotics%3A%20Advances%20in%20Locomotion%2C%20Manipulation%2C%20and%20Perception/" class="md-nav__link">
         Reinforcement Learning in Robotics: A Game Changer for Locomotion, Manipulation, and Perception
       </a>
     </li>
@@ -1019,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Reinforcement%20Learning%3A%20Breakthroughs%20in%20Autonomous%20Agents%20and%20Their%20Real-World%20Implications/" class="md-nav__link">
+      <a href="../../future/Reinforcement%20Learning%3A%20Breakthroughs%20in%20Autonomous%20Agents%20and%20Their%20Real-World%20Implications/" class="md-nav__link">
         Breakthroughs in Reinforcement Learning and their Real-World Implications
       </a>
     </li>
@@ -1033,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Future%20of%20Natural%20Language%20Processing%3A%20AI%2C%20Chatbots%2C%20and%20Conversational%20Systems/" class="md-nav__link">
+      <a href="../../future/The%20Future%20of%20Natural%20Language%20Processing%3A%20AI%2C%20Chatbots%2C%20and%20Conversational%20Systems/" class="md-nav__link">
         The Future of Natural Language Processing: AI, Chatbots, and Conversational Systems
       </a>
     </li>
@@ -1047,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Importance%20of%20Machine%20Learning%20for%20Climate%20Change%3A%20Predictive%20Modeling%2C%20Sustainability%2C%20and%20Mitigation%20Strategies/" class="md-nav__link">
+      <a href="../../future/The%20Importance%20of%20Machine%20Learning%20for%20Climate%20Change%3A%20Predictive%20Modeling%2C%20Sustainability%2C%20and%20Mitigation%20Strategies/" class="md-nav__link">
         The Crucial Role of Machine Learning in Combating Climate Change
       </a>
     </li>
@@ -1061,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Intersection%20of%20Machine%20Learning%20and%20High%20Performance%20Computing%3A%20Accelerating%20ML%20Workflows/" class="md-nav__link">
+      <a href="../../future/The%20Intersection%20of%20Machine%20Learning%20and%20High%20Performance%20Computing%3A%20Accelerating%20ML%20Workflows/" class="md-nav__link">
         The Intersection of Machine Learning and High Performance Computing: Accelerating ML Workflows
       </a>
     </li>
@@ -1075,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Potential%20of%20Transfer%20Learning%20for%20Accelerating%20ML%20Model%20Development%20and%20Adaptation%20across%20Domains/" class="md-nav__link">
+      <a href="../../future/The%20Potential%20of%20Transfer%20Learning%20for%20Accelerating%20ML%20Model%20Development%20and%20Adaptation%20across%20Domains/" class="md-nav__link">
         The Potential of Transfer Learning for Accelerating ML Model Development and Adaptation across Domains
       </a>
     </li>
@@ -1089,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Promise%20and%20Peril%20of%20Deepfakes%3A%20Detecting%20and%20Preventing%20Manipulated%20Media%20with%20ML/" class="md-nav__link">
+      <a href="../../future/The%20Promise%20and%20Peril%20of%20Deepfakes%3A%20Detecting%20and%20Preventing%20Manipulated%20Media%20with%20ML/" class="md-nav__link">
         The Promise and Peril of Deepfakes: Detecting and Preventing Manipulated Media with Machine Learning
       </a>
     </li>
@@ -1103,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Rise%20of%20AutoML%3A%20Automating%20the%20Development%20of%20ML%20Pipelines%20and%20Model%20Selection/" class="md-nav__link">
+      <a href="../../future/The%20Rise%20of%20AutoML%3A%20Automating%20the%20Development%20of%20ML%20Pipelines%20and%20Model%20Selection/" class="md-nav__link">
         The Rise of AutoML: Automating the Development of ML Pipelines and Model Selection
       </a>
     </li>
@@ -1117,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Rise%20of%20Graph%20Neural%20Networks%3A%20Applications%20in%20Social%20Network%20Analysis%2C%20Drug%20Discovery%2C%20and%20Recommendation%20Systems/" class="md-nav__link">
+      <a href="../../future/The%20Rise%20of%20Graph%20Neural%20Networks%3A%20Applications%20in%20Social%20Network%20Analysis%2C%20Drug%20Discovery%2C%20and%20Recommendation%20Systems/" class="md-nav__link">
         Unlocking the Power of Graph Neural Networks in Social Network Analysis, Drug Discovery, and Recommendation Systems
       </a>
     </li>
@@ -1131,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Rise%20of%20Neural%20Networks%20on%20Edge%20Devices%3A%20Enabling%20Real-Time%20ML%20Inference%20and%20Decision%20Making%20at%20the%20Edge/" class="md-nav__link">
+      <a href="../../future/The%20Rise%20of%20Neural%20Networks%20on%20Edge%20Devices%3A%20Enabling%20Real-Time%20ML%20Inference%20and%20Decision%20Making%20at%20the%20Edge/" class="md-nav__link">
         The Rise of Neural Networks on Edge Devices: Enabling Real-Time ML Inference and Decision Making at the Edge
       </a>
     </li>
@@ -1145,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Role%20of%20Federated%20Learning%20in%20Decentralized%20Data%20Privacy%20and%20Security%20for%20IoT%20Applications/" class="md-nav__link">
+      <a href="../../future/The%20Role%20of%20Federated%20Learning%20in%20Decentralized%20Data%20Privacy%20and%20Security%20for%20IoT%20Applications/" class="md-nav__link">
         The Role of Federated Learning in Decentralized Data Privacy and Security for IoT Applications
       </a>
     </li>
@@ -1159,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/The%20Role%20of%20Unsupervised%20Machine%20Learning%20in%20Discovering%20Patterns%20from%20Unlabeled%20Data/" class="md-nav__link">
+      <a href="../../future/The%20Role%20of%20Unsupervised%20Machine%20Learning%20in%20Discovering%20Patterns%20from%20Unlabeled%20Data/" class="md-nav__link">
         The Role of Unsupervised Machine Learning in Discovering Patterns from Unlabeled Data
       </a>
     </li>
@@ -1173,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/future/Understanding%20Transfer%20Learning%3A%20its%20Applications%20and%20Limitations/" class="md-nav__link">
+      <a href="../../future/Understanding%20Transfer%20Learning%3A%20its%20Applications%20and%20Limitations/" class="md-nav__link">
         Understanding Transfer Learning: Applications and Limitations
       </a>
     </li>
@@ -1222,7 +1304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reading/goleman/" class="md-nav__link">
+      <a href="../../reading/goleman/" class="md-nav__link">
         Book Review - What Makes a Leader
       </a>
     </li>
@@ -1236,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reading/neurips23/" class="md-nav__link">
+      <a href="../../reading/neurips23/" class="md-nav__link">
         NeurIPS 2023
       </a>
     </li>
@@ -1267,6 +1349,51 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-points" class="md-nav__link">
+    Key Points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussion" class="md-nav__link">
+    Discussion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-attention" class="md-nav__link">
+    Self-attention
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1278,8 +1405,92 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="bert-bidirectional-encoder-representations-from-transformers">BERT: Bidirectional Encoder Representations from Transformers</h1>
+<h2 id="overview">Overview</h2>
+<p>BERT, or Bidirectional Encoder Representations from Transformers, is a groundbreaking NLP model developed by Google. One of the key advantages of BERT is its ability to understand context and meaning in <strong>both</strong> directions, forward and backward, through a self-supervised training process.</p>
+<h2 id="key-points">Key Points</h2>
+<ul>
+<li>
+<p>BERT achieves this advanced understanding of language by pre-training on massive amounts of unlabeled text data from sources like Wikipedia and books corpus. This allows it to capture the context and relationships between words in a sentence, rather than focusing solely on individual word meanings.</p>
+</li>
+<li>
+<p>The model is based on <strong>Transformer</strong> architecture, which was originally proposed for machine translation tasks. BERT uses a self-attention mechanism, which allows it to consider all possible word relationships and generate highly accurate contextualized representations of words. This makes the model more robust in various language understanding tasks, such as question answering, sentiment analysis, and natural language inference.</p>
+</li>
+<li>
+<p>BERT's performance has significantly outperformed previous state-of-the-art models on various benchmarking datasets, leading to its widespread adoption among researchers and developers. Due to this success, Google open-sourced BERT, making it accessible for further development and experimentation in the research community.</p>
+</li>
+<li>
+<p>BERT is a powerful and innovative natural language processing model that has revolutionized the field with its ability to understand context and meaning in both forward and backward directions. Its impact is evident through its continued use by researchers even years after its initial release.</p>
+</li>
+</ul>
+<h2 id="discussion">Discussion</h2>
+<p>One of the key features of BERT is its ability to capture the context and relationships between words in a sentence, rather than focusing solely on individual word meanings. This is achieved through a process of pre-training on massive amounts of unlabeled text data from sources like Wikipedia and books corpus. By analyzing this data, BERT is able to learn the patterns and relationships between words, allowing it to generate contextualized representations of words.</p>
+<p>For example, consider the sentence "The cat sat on the mat." Without any context, the word "cat" could refer to any type of feline, but with the context of the sentence, we know that it is referring to a specific cat that is sitting on a mat. BERT is able to capture this context and relationship between the words in the sentence, allowing it to generate a more accurate representation of the sentence as a whole.</p>
+<p>In contrast, traditional word-based models such as word2vec or GloVe, which only consider the individual word meanings, would generate embeddings for "cat" and "mat" that do not capture the relationship between them in the context of the sentence. This can lead to less accurate predictions and poorer performance on tasks such as language translation or sentiment analysis.
+BERT's ability to capture context and relationships between words is a key factor in its success and has led to significant improvements across a wide range of NLP tasks.</p>
+<h2 id="self-attention">Self-attention</h2>
+<p>Self-attention is a mechanism in deep learning that allows a model to attend to different parts of an input sequence when making predictions. It is a way for the model to weigh the importance of different features in the input and use that information to make more accurate predictions.</p>
+<p>Intuitively, self-attention can be thought of as a way for the model to "focus" on certain parts of the input when making predictions. For example, if the input is a sequence of words, self-attention can allow the model to focus on certain words that are more important for making a prediction, rather than considering the entire sequence equally.</p>
+<p>Self-attention is implemented using a set of learnable weights that are used to compute a set of attention scores. These attention scores represent the degree to which each feature in the input is important for making a prediction. The attention scores are then used to weight the input features, so that more important features are given more weight and less important features are given less weight. This is especially useful for tasks like machine translation, where the model needs to understand the context of an entire sentence rather than individual words. Self-attention has also been used in computer vision tasks, where it can help the model to focus on certain parts of an image that are more important for making a prediction.</p>
+<p>Mathematically, Self-Attention can be represented as:</p>
+<p>
+<script type="math/tex; mode=display"> softmax(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}})</script>
+</p>
+<p>where Q, K, V are learnable matrices for projections of queries (Q), keys (K) and values (V). </p>
+<p>The <strong>attention</strong> score between a query and each key in the sequence is calculated using a dot product, and then normalized through the softmax function to get the weight for each value vector.</p>
+<p>Let's break it down step-by-step: </p>
+<ol>
+<li>Calculate Query Matrix:</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">\mathbf{Q} = \mathbf{x}\mathbf{W}_q</script>
+</p>
+<p>where x is the input sequence and W_q is a weight matrix for queries.</p>
+<ol>
+<li>Calculate Key Matrix:</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">\mathbf{K} = \mathbf{x}\mathbf{W}_k</script>
+</p>
+<p>where W_k is a weight matrix for keys.</p>
+<ol>
+<li>Calculate Value Matrix:</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">\mathbf{V} = \mathbf{x}\mathbf{W}_v</script>
+</p>
+<p>where W_v is a weight matrix for values.</p>
+<p>We have now taken input x and compute 3 distinct linear transformations.</p>
+<ol>
+<li>Dot Product Attention:</li>
+</ol>
+<p>Attention scores are calculated as the dot product between Q and K, followed by a softmax function to obtain the weights for each value vector:</p>
+<p>
+<script type="math/tex; mode=display">\mathbf{A} = softmax(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}})</script>
+</p>
+<p>where d_k is the dimensionality of key vectors.</p>
+<ol>
+<li>Weighted Sum of Value Matrix:</li>
+</ol>
+<p>Finally, the output of the self-attention mechanism is obtained by taking a weighted sum of value vectors using attention scores from step 4:</p>
+<p>
+<script type="math/tex; mode=display">\mathbf{O} = \mathbf{V}\mathbf{A}</script>
+</p>
+<p>Self-Attention is a powerful technique that allows models to capture context and relationships between parts of an input sequence. The mathematical implementation involves
+1. Projecting inputs as queries, keys, and values through learnable weight matrices. 
+2. Dot product attention mechanism 
+3. Weighted sum over value vectors.</p>
+<h2 id="summary">Summary</h2>
+<p>BERT is particularly useful for NLP tasks where context is crucial. For example, in question answering, BERT can understand the context of a question and generate a accurate response, even when the question is phrased in a way that differs from the original text. Similarly, in sentiment analysis tasks, BERT can accurately identify the sentiment of a sentence, even when the sentiment is expressed in a subtle or nuanced way. BERT is highly versatile and can be adapted to a wide range of NLP tasks -- and has significantly impacted the way we approach language understanding in machine learning.</p>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1311,10 +1522,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["content.code.copy"], "search": "/assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

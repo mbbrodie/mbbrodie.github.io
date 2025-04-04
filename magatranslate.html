@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAGA Translator - Make English Great Again</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+        
+        .patriotic-bg {
+            background: linear-gradient(135deg, #002366 0%, #BF0A30 50%, #FFFFFF 100%);
+        }
+        
+        .text-outline {
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+        
+        .flag-wave {
+            animation: wave 10s linear infinite;
+            background-size: 200% 100%;
+            background-image: linear-gradient(135deg, #002366 25%, #BF0A30 25%, #BF0A30 50%, #FFFFFF 50%, #FFFFFF 75%, #002366 75%);
+        }
+        
+        @keyframes wave {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        .trump-signature {
+            font-family: 'Brush Script MT', cursive;
+            transform: rotate(-5deg);
+            color: #BF0A30;
+        }
+        
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px;
+            animation: firework 1s ease-out;
+            opacity: 0;
+        }
+        
+        @keyframes firework {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen patriotic-bg text-white font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header with animated flag background -->
+        <header class="flag-wave rounded-lg p-6 mb-8 shadow-xl relative overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-30 rounded-lg"></div>
+            <div class="relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-2 text-outline font-['Patua One']">
+                    <i class="fas fa-star-spangled text-yellow-300"></i> MAGA TRANSLATOR <i class="fas fa-star-spangled text-yellow-300"></i>
+                </h1>
+                <p class="text-xl md:text-2xl font-semibold text-outline">
+                    Make Your English Great Again!
+                </p>
+                <div class="mt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Donald_Trump_portrait_official_2025.jpg" 
+                         class="w-24 h-24 mx-auto rounded-full border-4 border-white shadow-lg" alt="Trump Portrait">
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <main class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 shadow-2xl border border-gray-300 border-opacity-30">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Input section -->
+                <div class="bg-blue-900 bg-opacity-50 p-6 rounded-lg border border-blue-200 border-opacity-30">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-language mr-2 text-red-300"></i> Weak Liberal English
+                    </h2>
+                    <textarea id="inputText" class="w-full h-64 p-4 rounded bg-gray-100 bg-opacity-10 border border-gray-300 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Enter your pathetic liberal words here..."></textarea>
+                    <div class="mt-4 flex justify-between">
+                        <button id="clearBtn" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded flex items-center">
+                            <i class="fas fa-trash mr-2"></i> Drain the Swamp
+                        </button>
+                        <button id="translateBtn" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded font-bold flex items-center">
+                            <i class="fas fa-flag-usa mr-2"></i> TRANSLATE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Output section -->
+                <div class="bg-red-900 bg-opacity-50 p-6 rounded-lg border border-red-200 border-opacity-30">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-star-spangled mr-2 text-yellow-300"></i> Powerful MAGA English
+                    </h2>
+                    <div id="outputText" class="w-full h-64 p-4 rounded bg-gray-100 bg-opacity-10 border border-gray-300 overflow-y-auto font-bold">
+                        <p class="text-gray-300 italic">Your tremendous translation will appear here. Believe me!</p>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <button id="copyBtn" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded flex items-center">
+                            <i class="fas fa-copy mr-2"></i> Copy to Clipboard
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample phrases -->
+            <div class="mt-8 bg-gray-900 bg-opacity-50 p-6 rounded-lg">
+                <h3 class="text-xl font-bold mb-3 flex items-center">
+                    <i class="fas fa-lightbulb mr-2 text-yellow-300"></i> Try These Tremendous Phrases:
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <button class="sample-btn bg-blue-800 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm">The economy is doing well</button>
+                    <button class="sample-btn bg-blue-800 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm">We need to work together</button>
+                    <button class="sample-btn bg-blue-800 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm">The media is biased</button>
+                    <button class="sample-btn bg-blue-800 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm">I support democracy</button>
+                    <button class="sample-btn bg-blue-800 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm">Climate change is real</button>
+                    <button class="sample-btn bg-blue-800 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm">We should help immigrants</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-8 text-center text-gray-300 text-sm">
+            <p>© 2023 Make English Great Again Translator. All rights reserved. Many people are saying it's the best translator.</p>
+            <p class="mt-1 trump-signature text-xl inline-block">- Donald J. Trump</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputText = document.getElementById('inputText');
+            const outputText = document.getElementById('outputText');
+            const translateBtn = document.getElementById('translateBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const sampleBtns = document.querySelectorAll('.sample-btn');
+            
+            // MAGA translation dictionary
+            const magaDictionary = {
+                // General replacements
+                "the": "the radical left",
+                "The": "The radical left",
+                "and": "and let me tell you",
+                "And": "And let me tell you",
+                "but": "but folks,",
+                "But": "But folks,",
+                "very": "tremendously",
+                "Very": "Tremendously",
+                "many": "tremendous numbers of",
+                "Many": "Tremendous numbers of",
+                "good": "the best",
+                "Good": "The best",
+                "great": "the greatest",
+                "Great": "The greatest",
+                "big": "yuge",
+                "Big": "Yuge",
+                "win": "landslide victory",
+                "Win": "Landslide victory",
+                "people": "patriots",
+                "People": "Patriots",
+                "media": "fake news",
+                "Media": "Fake News",
+                "democrat": "radical left socialist",
+                "Democrat": "Radical Left Socialist",
+                "republican": "true patriot",
+                "Republican": "True Patriot",
+                "election": "rigged election",
+                "Election": "Rigged Election",
+                "vote": "legal vote",
+                "Vote": "Legal Vote",
+                "border": "beautiful wall",
+                "Border": "Beautiful Wall",
+                "immigrant": "illegal alien",
+                "Immigrant": "Illegal Alien",
+                "climate change": "hoax created by China",
+                "Climate change": "Hoax created by China",
+                "global warming": "total fabrication",
+                "Global warming": "Total fabrication",
+                "woke": "radical left woke mob",
+                "Woke": "Radical Left Woke Mob",
+                
+                // Phrases
+                "I think": "Many very smart people are saying",
+                "i think": "many very smart people are saying",
+                "we should": "we need to",
+                "We should": "We need to",
+                "it's important": "it's absolutely crucial",
+                "It's important": "It's absolutely crucial",
+                "the economy": "the greatest economy in history",
+                "The economy": "The greatest economy in history",
+                "working class": "forgotten men and women",
+                "Working class": "Forgotten men and women",
+                "middle class": "hard-working Americans",
+                "Middle class": "Hard-working Americans",
+                "united states": "greatest country on earth",
+                "United States": "Greatest Country on Earth",
+                "president": "very stable genius",
+                "President": "Very Stable Genius",
+                "biden": "sleepy joe",
+                "Biden": "Sleepy Joe",
+                "obama": "obummer",
+                "Obama": "Obummer",
+                "clinton": "crooked hillary",
+                "Clinton": "Crooked Hillary",
+                "pelosi": "crazy nancy",
+                "Pelosi": "Crazy Nancy",
+                "schumer": "cryin' chuck",
+                "Schumer": "Cryin' Chuck",
+                
+                // Sentence endings
+                ".": ". Believe me!",
+                "!": "! Many people are saying it!",
+                "?": "? Sad!"
+            };
+            
+            // Translate function
+            function translateToMAGA(text) {
+                let translated = text;
+                
+                // Replace words and phrases
+                for (let [key, value] of Object.entries(magaDictionary)) {
+                    //const regex = new RegExp(key, 'g');
+                    translated = translated.replace(key, value);
+                }
+                
+                // Add random MAGA phrases
+                const randomPhrases = [
+                    " Many people don't know this!",
+                    " It's true!",
+                    " Nobody knew it could be this good!",
+                    " Some say it's the best ever!",
+                    " Very cool!",
+                    " Total disaster otherwise!",
+                    " Worst deal in history!",
+                    " We're going to win so much!",
+                    " It's going to be huge!",
+                    " Nobody does it better!"
+                ];
+                
+                // Add random phrases to about 30% of sentences
+                const sentences = translated.split(/([.!?])\s*/);
+                for (let i = 0; i < sentences.length; i += 2) {
+                    if (Math.random() < 0.3) {
+                        const randomIndex = Math.floor(Math.random() * randomPhrases.length);
+                        sentences[i] += randomPhrases[randomIndex];
+                    }
+                    if (i + 1 < sentences.length) {
+                        sentences[i] += sentences[i + 1];
+                    }
+                }
+                translated = sentences.filter((_, index) => index % 2 === 0).join(' ');
+                
+                // Capitalize random words for emphasis
+                const words = translated.split(' ');
+                for (let i = 0; i < words.length; i++) {
+                    if (Math.random() < 0.1 && words[i].length > 3) {
+                        words[i] = words[i].toUpperCase();
+                    }
+                }
+                translated = words.join(' ');
+                
+                return translated;
+            }
+            
+            // Create fireworks animation
+            function createFireworks() {
+                const container = document.querySelector('main');
+                const colors = ['#FF0000', '#FFFFFF', '#0000FF', '#FFD700'];
+                
+                for (let i = 0; i < 20; i++) {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.left = `${Math.random() * 100}%`;
+                    firework.style.top = `${Math.random() * 100}%`;
+                    firework.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Random direction and distance
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 50 + Math.random() * 100;
+                    const tx = Math.cos(angle) * distance;
+                    const ty = Math.sin(angle) * distance;
+                    
+                    firework.style.setProperty('--tx', `${tx}px`);
+                    firework.style.setProperty('--ty', `${ty}px`);
+                    
+                    container.appendChild(firework);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        firework.remove();
+                    }, 1000);
+                }
+            }
+            
+            // Event listeners
+            translateBtn.addEventListener('click', function() {
+                if (inputText.value.trim() === '') {
+                    outputText.innerHTML = '<p class="text-red-300">Please enter some weak liberal words to make great again!</p>';
+                    return;
+                }
+                
+                const translated = translateToMAGA(inputText.value);
+                outputText.innerHTML = `<p class="text-yellow-200">${translated}</p>`;
+                createFireworks();
+                
+                // Play sound
+                const audio = new Audio('https://www.soundjay.com/mechanical/sounds/camera-shutter-click-01.mp3');
+                audio.play();
+            });
+            
+            clearBtn.addEventListener('click', function() {
+                inputText.value = '';
+                outputText.innerHTML = '<p class="text-gray-300 italic">Your tremendous translation will appear here. Believe me!</p>';
+            });
+            
+            copyBtn.addEventListener('click', function() {
+                if (outputText.textContent.includes('Your tremendous translation')) {
+                    return;
+                }
+                
+                navigator.clipboard.writeText(outputText.textContent)
+                    .then(() => {
+                        const alert = document.createElement('div');
+                        alert.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded shadow-lg';
+                        alert.textContent = 'Copied to clipboard! Very cool!';
+                        document.body.appendChild(alert);
+                        
+                        setTimeout(() => {
+                            alert.remove();
+                        }, 2000);
+                    });
+            });
+            
+            // Sample phrase buttons
+            sampleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    inputText.value = this.textContent;
+                });
+            });
+            
+            // Easter egg - MAGA chant when clicking the header
+            const header = document.querySelector('header');
+            header.addEventListener('click', function() {
+                const chants = [
+                    "USA! USA! USA!",
+                    "MAGA! MAGA! MAGA!",
+                    "Four more years!",
+                    "Stop the steal!",
+                    "Build the wall!",
+                    "Lock her up!"
+                ];
+                
+                const randomChant = chants[Math.floor(Math.random() * chants.length)];
+                const chantElement = document.createElement('div');
+                chantElement.className = 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white text-2xl font-bold p-4 rounded-lg z-20';
+                chantElement.textContent = randomChant;
+                header.appendChild(chantElement);
+                
+                setTimeout(() => {
+                    chantElement.remove();
+                }, 1500);
+                
+                // Play crowd sound
+                const audio = new Audio('https://www.soundjay.com/human/sounds/applause-01.mp3');
+                audio.play();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent-A-Riot™ - Professional Protest Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .protest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sign-preview {
+            transition: all 0.3s ease;
+        }
+        
+        .chant-player {
+            background-color: #f8fafc;
+            border-left: 4px solid #ef4444;
+        }
+        
+        @keyframes pulse2 {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .featured-protest {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header with revolutionary aesthetic -->
+    <header class="bg-gradient-to-r from-red-600 to-yellow-500 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-fist-raised text-3xl"></i>
+                    <div>
+                        <h1 class="text-3xl font-bold">Rent-A-Riot™</h1>
+                        <p class="text-sm opacity-90">Professional Protesters On Demand</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="bg-black bg-opacity-20 px-4 py-2 rounded-full">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        <span>1-800-WE-RIOT</span>
+                    </div>
+                    <button class="bg-white text-red-600 px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition">
+                        Join The Movement
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <section class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Outrage Without The Effort!</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Our professionally trained activists will protest for you while you stay comfortably at home.
+                <span class="block text-yellow-300 mt-2">"Like Uber, but for civil disobedience!" - Forbes</span>
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full text-lg font-bold transition">
+                    <i class="fas fa-fire mr-2"></i> Book Protest Now
+                </button>
+                <button class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-full text-lg font-bold transition">
+                    <i class="fas fa-play mr-2"></i> Watch Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">How Our Revolutionary Service Works</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center p-6 rounded-lg bg-gray-50">
+                    <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-semibold mb-3">Select Your Cause</h3>
+                    <p class="text-gray-600">
+                        Choose from our menu of trending social issues or enter your custom grievance. 
+                        Our algorithm will match you with protesters who genuinely (or convincingly) care.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center p-6 rounded-lg bg-gray-50">
+                    <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-semibold mb-3">Customize Your Protest</h3>
+                    <p class="text-gray-600">
+                        Pick signs, chants, and intensity level. Add premium options like media coverage, 
+                        celebrity participants, or police liaison services.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center p-6 rounded-lg bg-gray-50">
+                    <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-semibold mb-3">Track In Real-Time</h3>
+                    <p class="text-gray-600">
+                        Watch your protest unfold via our live-streaming app. Receive metrics on social 
+                        media impressions, news coverage, and politician reactions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protest Packages -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">Protest Packages</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Choose the level of civil disobedience that matches your budget and desired impact
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic Package -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg protest-card transition">
+                    <div class="bg-gray-800 text-white p-6">
+                        <h3 class="text-2xl font-bold">Basic Outrage</h3>
+                        <p class="text-gray-300">For casual discontent</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold mb-4">$49<span class="text-lg text-gray-500">/hour</span></div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>5 Professional Protesters</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Standard Issue Signs</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Basic Chant Repertoire</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fas fa-times text-red-400 mr-2"></i>
+                                <span>No Media Guarantee</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fas fa-times text-red-400 mr-2"></i>
+                                <span>Permit Not Included</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-gray-800 hover:bg-gray-900 text-white py-3 rounded-lg font-semibold transition">
+                            Book Basic
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Premium Package -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg protest-card border-2 border-yellow-400 featured-protest transition">
+                    <div class="bg-yellow-500 text-gray-900 p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-bold">Premium Uprising</h3>
+                                <p class="text-gray-800">Our most popular package</p>
+                            </div>
+                            <span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full">BEST VALUE</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold mb-4">$199<span class="text-lg text-gray-500">/hour</span></div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>20 Passionate Activists</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Custom Printed Signs</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Chant Leader Included</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Local Media Guarantee</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Permit Arrangement (+$99)</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 py-3 rounded-lg font-semibold transition">
+                            Book Premium
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Elite Package -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg protest-card transition">
+                    <div class="bg-red-600 text-white p-6">
+                        <h3 class="text-2xl font-bold">Elite Revolution</h3>
+                        <p class="text-gray-200">For when you mean business</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold mb-4">$999<span class="text-lg text-gray-500">/hour</span></div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>100+ Seasoned Protesters</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>LED Signs & Sound System</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Celebrity Guest Speaker</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>National Media Guarantee</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Full Permit Package Included</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition">
+                            Book Elite
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign Customizer -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Custom Protest Sign Generator</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Sign Text</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500" 
+                               placeholder="E.g. 'No Justice, No Peace'" id="signText">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Sign Style</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button class="sign-style-btn border-2 border-gray-200 p-2 rounded-lg hover:border-red-500 transition" data-style="classic">
+                                <div class="h-16 bg-white border border-gray-300 flex items-center justify-center">
+                                    <span class="text-xs">Classic</span>
+                                </div>
+                            </button>
+                            <button class="sign-style-btn border-2 border-gray-200 p-2 rounded-lg hover:border-red-500 transition" data-style="angry">
+                                <div class="h-16 bg-red-100 border border-red-300 flex items-center justify-center">
+                                    <span class="text-xs">Angry</span>
+                                </div>
+                            </button>
+                            <button class="sign-style-btn border-2 border-gray-200 p-2 rounded-lg hover:border-red-500 transition" data-style="premium">
+                                <div class="h-16 bg-yellow-100 border border-yellow-300 flex items-center justify-center">
+                                    <span class="text-xs">Premium</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Add-ons</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-red-600 mr-2" id="waterproof">
+                                <span>Waterproof (+$5/sign)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-red-600 mr-2" id="glow">
+                                <span>Glow-in-the-Dark (+$10/sign)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-red-600 mr-2" id="led">
+                                <span>LED Display (+$25/sign)</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Protest Package
+                    </button>
+                </div>
+                
+                <!-- Sign Preview -->
+                <div class="flex justify-center">
+                    <div class="w-full max-w-md">
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-4">Sign Preview</h3>
+                            <div id="signPreview" class="sign-preview bg-white border-2 border-gray-300 h-48 flex items-center justify-center p-4 text-center text-xl font-bold">
+                                Your Protest Message Here
+                            </div>
+                            <div class="mt-4 text-sm text-gray-600">
+                                <p>Actual signs may vary. Additional fees apply for custom artwork.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chant Library -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Protest Chant Library</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Chant 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="chant-player p-6">
+                        <h3 class="text-xl font-semibold mb-3">The Classic</h3>
+                        <p class="text-gray-300 mb-4">"Hey hey, ho ho, [INSERT INJUSTICE HERE] has got to go!"</p>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-play mr-1"></i> Preview
+                            </button>
+                            <span class="text-xs bg-gray-700 px-2 py-1 rounded">Included in all packages</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chant 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="chant-player p-6">
+                        <h3 class="text-xl font-semibold mb-3">The Callback</h3>
+                        <p class="text-gray-300 mb-4">"What do we want? [DEMAND]! When do we want it? NOW!"</p>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-play mr-1"></i> Preview
+                            </button>
+                            <span class="text-xs bg-gray-700 px-2 py-1 rounded">Premium+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chant 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="chant-player p-6">
+                        <h3 class="text-xl font-semibold mb-3">The Rhythmic</h3>
+                        <p class="text-gray-300 mb-4">"No justice! (clap clap) No peace! (clap clap)"</p>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-play mr-1"></i> Preview
+                            </button>
+                            <span class="text-xs bg-gray-700 px-2 py-1 rounded">Basic+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chant 4 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="chant-player p-6">
+                        <h3 class="text-xl font-semibold mb-3">The Poetic</h3>
+                        <p class="text-gray-300 mb-4">"The people united will never be defeated!"</p>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-play mr-1"></i> Preview
+                            </button>
+                            <span class="text-xs bg-gray-700 px-2 py-1 rounded">Included in all packages</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chant 5 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="chant-player p-6">
+                        <h3 class="text-xl font-semibold mb-3">The Direct</h3>
+                        <p class="text-gray-300 mb-4">"Shame! Shame! Shame!"</p>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-play mr-1"></i> Preview
+                            </button>
+                            <span class="text-xs bg-gray-700 px-2 py-1 rounded">Basic+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chant 6 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="chant-player p-6">
+                        <h3 class="text-xl font-semibold mb-3">Custom Chant</h3>
+                        <p class="text-gray-300 mb-4">Have our chant writers create a custom protest anthem</p>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-4 py-2 rounded-full text-sm font-semibold">
+                                <i class="fas fa-pen mr-1"></i> Customize
+                            </button>
+                            <span class="text-xs bg-gray-700 px-2 py-1 rounded">$150/hour</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-3 rounded-full font-semibold transition">
+                    View Full Chant Library (247+ options)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold text-xl mr-4">
+                            JD
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">John D.</h4>
+                            <p class="text-sm text-gray-500">Local Politician</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        "I needed protesters to show up at my opponent's rally to make it look like he was unpopular. 
+                        Rent-A-Riot delivered exactly what I needed. The crowd looked organic and the chants were 
+                        perfectly on-message. Five stars!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold text-xl mr-4">
+                            SG
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Sarah G.</h4>
+                            <p class="text-sm text-gray-500">Marketing Director</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        "Our startup needed social proof for our 'grassroots' movement against big tech. 
+                        The premium package got us trending on Twitter and a mention in TechCrunch. 
+                        The ROI was incredible compared to traditional marketing."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold text-xl mr-4">
+                            MT
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Michael T.</h4>
+                            <p class="text-sm text-gray-500">Film Producer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        "We used Rent-A-Riot to stage a protest scene for our movie. Not only did they provide 
+                        authentic-looking protesters, but they also handled all the permits and even got some 
+                        real news coverage that we incorporated into the film. Brilliant service!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gradient-to-r from-red-600 to-yellow-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Make Your Voice Heard?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Let our professional protesters carry your message to the streets, media, and halls of power.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <button class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-full text-lg font-bold transition">
+                    <i class="fas fa-calendar-alt mr-2"></i> Schedule Consultation
+                </button>
+                <button class="bg-black bg-opacity-30 hover:bg-opacity-40 text-white px-8 py-4 rounded-full text-lg font-bold transition border border-white">
+                    <i class="fas fa-question-circle mr-2"></i> Ask About Bulk Discounts
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Rent-A-Riot™</h3>
+                    <p class="mb-4">
+                        Professional protest services for individuals, organizations, and corporations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Protest Packages</a></li>
+                        <li><a href="#" class="hover:text-white">Sign Printing</a></li>
+                        <li><a href="#" class="hover:text-white">Chant Development</a></li>
+                        <li><a href="#" class="hover:text-white">Permit Acquisition</a></li>
+                        <li><a href="#" class="hover:text-white">Media Training</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Protestor Handbook</a></li>
+                        <li><a href="#" class="hover:text-white">First Amendment Guide</a></li>
+                        <li><a href="#" class="hover:text-white">Legal Support</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Disclaimers</a></li>
+                        <li><a href="#" class="hover:text-white">Non-Disclosure Agreement</a></li>
+                        <li><a href="#" class="hover:text-white">Billing FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-sm">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p>© 2023 Rent-A-Riot™. All rights reserved. Patent pending.</p>
+                    <p class="mt-4 md:mt-0">
+                        <span class="mr-4">1-800-WE-RIOT</span>
+                        <span>protest@rentariot.com</span>
+                    </p>
+                </div>
+                <div class="mt-4 text-xs text-gray-600">
+                    <p>
+                        *Rent-A-Riot™ is a satirical concept. We do not actually provide professional protest services. 
+                        This website is for entertainment purposes only. All similarities to actual protest-for-hire 
+                        services are purely coincidental.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sign customizer functionality
+        const signText = document.getElementById('signText');
+        const signPreview = document.getElementById('signPreview');
+        const styleButtons = document.querySelectorAll('.sign-style-btn');
+        
+        signText.addEventListener('input', function() {
+            signPreview.textContent = this.value || 'Your Protest Message Here';
+        });
+        
+        styleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove all style classes first
+                signPreview.className = 'sign-preview h-48 flex items-center justify-center p-4 text-center text-xl font-bold';
+                
+                // Add the selected style
+                const style = this.dataset.style;
+                if (style === 'classic') {
+                    signPreview.classList.add('bg-white', 'border-2', 'border-gray-300');
+                } else if (style === 'angry') {
+                    signPreview.classList.add('bg-red-100', 'border-2', 'border-red-500');
+                } else if (style === 'premium') {
+                    signPreview.classList.add('bg-yellow-100', 'border-2', 'border-yellow-500');
+                }
+                
+                // Update active button
+                styleButtons.forEach(btn => btn.classList.remove('border-red-500'));
+                this.classList.add('border-red-500');
+            });
+        });
+        
+        // Initialize with classic style
+        document.querySelector('.sign-style-btn[data-style="classic"]').click();
+        
+        // Fake testimonial carousel
+        /*setInterval(() => {
+            const testimonials = document.querySelectorAll('.bg-gray-50');
+            testimonials.forEach((testimonial, index) => {
+                setTimeout(() => {
+                    testimonial.classList.toggle('opacity-90');
+                    testimonial.classList.toggle('scale-95');
+                }, index * 100);
+            });
+        }, 5000);
+				*/
+        
+        // Fake package hover effects
+        const packages = document.querySelectorAll('.protest-card');
+        packages.forEach(pkg => {
+            pkg.addEventListener('mouseenter', () => {
+                pkg.style.transform = 'translateY(-5px)';
+                pkg.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+            });
+            
+            pkg.addEventListener('mouseleave', () => {
+                pkg.style.transform = '';
+                pkg.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>

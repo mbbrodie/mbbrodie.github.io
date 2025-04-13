@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Order Challenge Toolkit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .legal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .progress-step.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .progress-step.completed {
+            background-color: #10b981;
+            color: white;
+        }
+        .document-section {
+            transition: all 0.3s ease;
+        }
+        .document-section:hover {
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-blue-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-balance-scale text-3xl"></i>
+                    <h1 class="text-2xl font-bold">Executive Order Challenge Toolkit</h1>
+                </div>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="#overview" class="hover:text-blue-200 transition">Overview</a></li>
+                        <li><a href="#steps" class="hover:text-blue-200 transition">Steps</a></li>
+                        <li><a href="#resources" class="hover:text-blue-200 transition">Resources</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="overview" class="mb-16">
+            <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Challenging an Executive Order</h2>
+                <p class="text-gray-700 mb-6">
+                    Executive orders are directives issued by the President to manage operations of the federal government. 
+                    While they have the force of law, they are subject to judicial review and can be challenged if they:
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="legal-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+                        <div class="text-blue-600 mb-3">
+                            <i class="fas fa-gavel text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Violate the Constitution</h3>
+                        <p class="text-gray-600">If the order infringes on rights protected by the Constitution or exceeds constitutional authority.</p>
+                    </div>
+                    <div class="legal-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+                        <div class="text-red-600 mb-3">
+                            <i class="fas fa-book text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Conflict with Statutes</h3>
+                        <p class="text-gray-600">If the order contradicts existing federal laws passed by Congress.</p>
+                    </div>
+                    <div class="legal-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+                        <div class="text-purple-600 mb-3">
+                            <i class="fas fa-user-shield text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Exceed Authority</h3>
+                        <p class="text-gray-600">If the President acts beyond the scope of powers granted by the Constitution or statutes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="steps" class="mb-16">
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8">Legal Challenge Process</h2>
+                
+                <div class="mb-12">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full progress-step active flex items-center justify-center font-bold mr-4">1</div>
+                            <h3 class="text-xl font-semibold">Determine Standing</h3>
+                        </div>
+                    </div>
+                    <div class="ml-14 pl-4 border-l-2 border-blue-200">
+                        <p class="text-gray-700 mb-4">
+                            To challenge an executive order, you must have legal standing - a concrete and particularized injury caused by the order that can be redressed by the court.
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-blue-800 mb-2"><i class="fas fa-lightbulb mr-2"></i>Key Considerations:</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Are you directly affected by the order?</li>
+                                <li>Can you demonstrate specific harm?</li>
+                                <li>Is the harm traceable to the order?</li>
+                                <li>Can a favorable court decision remedy the harm?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full progress-step active flex items-center justify-center font-bold mr-4">2</div>
+                            <h3 class="text-xl font-semibold">Identify Legal Grounds</h3>
+                        </div>
+                    </div>
+                    <div class="ml-14 pl-4 border-l-2 border-blue-200">
+                        <p class="text-gray-700 mb-4">
+                            Develop the legal arguments for why the executive order should be invalidated.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <h4 class="font-bold text-gray-800 mb-2"><i class="fas fa-question-circle text-blue-600 mr-2"></i>Constitutional Violations</h4>
+                                <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+                                    <li>Does it violate separation of powers?</li>
+                                    <li>Does it infringe on protected rights (speech, religion, etc.)?</li>
+                                    <li>Does it exceed executive authority?</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <h4 class="font-bold text-gray-800 mb-2"><i class="fas fa-question-circle text-blue-600 mr-2"></i>Statutory Conflicts</h4>
+                                <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+                                    <li>Does it contradict existing federal law?</li>
+                                    <li>Does it improperly interpret a statute?</li>
+                                    <li>Does it create rules that should be made by Congress?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full progress-step active flex items-center justify-center font-bold mr-4">3</div>
+                            <h3 class="text-xl font-semibold">File Legal Action</h3>
+                        </div>
+                    </div>
+                    <div class="ml-14 pl-4 border-l-2 border-blue-200">
+                        <p class="text-gray-700 mb-4">
+                            Prepare and file the appropriate legal documents to initiate the challenge.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="document-section bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md cursor-pointer">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-2 rounded-lg mr-4">
+                                        <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Complaint</h4>
+                                        <p class="text-gray-600 text-sm">Document outlining the legal basis for the challenge, facts of the case, and requested relief.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="document-section bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md cursor-pointer">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-lg mr-4">
+                                        <i class="fas fa-file-invoice text-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Motion for Preliminary Injunction</h4>
+                                        <p class="text-gray-600 text-sm">Request to stop enforcement of the order while the case is being decided.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="document-section bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md cursor-pointer">
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 p-2 rounded-lg mr-4">
+                                        <i class="fas fa-file-contract text-purple-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Memorandum of Law</h4>
+                                        <p class="text-gray-600 text-sm">Detailed legal arguments supporting the challenge with case citations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full progress-step active flex items-center justify-center font-bold mr-4">4</div>
+                            <h3 class="text-xl font-semibold">Court Proceedings</h3>
+                        </div>
+                    </div>
+                    <div class="ml-14 pl-4 border-l-2 border-blue-200">
+                        <p class="text-gray-700 mb-4">
+                            The judicial process for reviewing the executive order challenge.
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <h4 class="font-bold text-gray-800 mb-2 text-center"><i class="fas fa-gavel text-yellow-500 mr-2"></i>District Court</h4>
+                                <p class="text-gray-600 text-sm">Initial filing and hearing, where most challenges begin.</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <h4 class="font-bold text-gray-800 mb-2 text-center"><i class="fas fa-balance-scale-right text-blue-500 mr-2"></i>Appeals Court</h4>
+                                <p class="text-gray-600 text-sm">Review of district court decision by circuit court.</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <h4 class="font-bold text-gray-800 mb-2 text-center"><i class="fas fa-landmark text-red-500 mr-2"></i>Supreme Court</h4>
+                                <p class="text-gray-600 text-sm">Final arbiter of constitutional questions (if certiorari is granted).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="mb-16">
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <h2 class="text-3xl font-bold text-blue-900 mb-6">Resources & Templates</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-blue-50 rounded-lg p-6">
+                        <h3 class="font-bold text-xl mb-3 text-blue-800"><i class="fas fa-file-download mr-2"></i>Document Templates</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-file-word mr-2"></i> Complaint Template (DOCX)
+                            </a>
+                            <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-file-pdf mr-2"></i> Motion for Injunction (PDF)
+                            </a>
+                            <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-file-code mr-2"></i> Legal Memorandum Outline
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 rounded-lg p-6">
+                        <h3 class="font-bold text-xl mb-3 text-green-800"><i class="fas fa-book-open mr-2"></i>Legal References</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center text-green-600 hover:text-green-800">
+                                <i class="fas fa-external-link-alt mr-2"></i> U.S. Constitution
+                            </a>
+                            <a href="#" class="flex items-center text-green-600 hover:text-green-800">
+                                <i class="fas fa-external-link-alt mr-2"></i> Federal Rules of Civil Procedure
+                            </a>
+                            <a href="#" class="flex items-center text-green-600 hover:text-green-800">
+                                <i class="fas fa-external-link-alt mr-2"></i> Administrative Procedure Act
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800"><i class="fas fa-question-circle mr-2"></i>Frequently Asked Questions</h3>
+                    <div class="space-y-4">
+                        <div class="border-b border-gray-200 pb-4">
+                            <h4 class="font-semibold text-gray-700 mb-2">Q: How long do I have to challenge an executive order?</h4>
+                            <p class="text-gray-600">A: There's no fixed statute of limitations, but you should act promptly, especially when seeking injunctive relief. Delays can affect standing and the court's willingness to intervene.</p>
+                        </div>
+                        <div class="border-b border-gray-200 pb-4">
+                            <h4 class="font-semibold text-gray-700 mb-2">Q: Can individuals challenge executive orders or only organizations?</h4>
+                            <p class="text-gray-600">A: Individuals can challenge orders if they can demonstrate concrete harm. Organizations often have an easier time showing standing through their members' injuries.</p>
+                        </div>
+                        <div class="border-b border-gray-200 pb-4">
+                            <h4 class="font-semibold text-gray-700 mb-2">Q: What's the success rate of executive order challenges?</h4>
+                            <p class="text-gray-600">A: Success varies widely depending on the legal grounds. Orders that clearly exceed presidential authority or violate constitutional rights have higher success rates in court.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-blue-900 text-white rounded-xl shadow-lg p-8 mb-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Need Professional Legal Assistance?</h2>
+                <p class="text-blue-100 mb-6">Challenging an executive order is complex. Our network of constitutional law experts can evaluate your case and guide you through the process.</p>
+                <button class="bg-white text-blue-900 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300 shadow-lg">
+                    <i class="fas fa-phone-alt mr-2"></i> Schedule Consultation
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-balance-scale text-2xl mr-3"></i>
+                        <span class="text-xl font-bold">Executive Order Challenge Toolkit</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">A comprehensive guide to challenging presidential executive orders</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>This tool provides general information and does not constitute legal advice. Consult an attorney for professional guidance specific to your situation.</p>
+                <p class="mt-2">© 2023 Executive Order Challenge Toolkit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Document section click effect
+            const docSections = document.querySelectorAll('.document-section');
+            docSections.forEach(section => {
+                section.addEventListener('click', function() {
+                    // In a real app, this would open the document
+                    alert('This would open the document in a real application');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

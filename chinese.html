@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandarin Masters | Premium K-12 Chinese Tutoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+        
+        .chinese-font {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+        }
+        
+        .character-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .stroke-order {
+            position: relative;
+        }
+        
+        .stroke-order::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+            border-radius: 0.5rem;
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .animated-character {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-red-600 text-2xl font-bold chinese-font">中文</span>
+                        <span class="ml-2 text-xl font-bold text-gray-800">Mandarin Masters</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-800 hover:text-red-600 px-3 py-2 font-medium">Home</a>
+                    <a href="#" class="text-gray-800 hover:text-red-600 px-3 py-2 font-medium">Courses</a>
+                    <a href="#" class="text-gray-800 hover:text-red-600 px-3 py-2 font-medium">Teachers</a>
+                    <a href="#" class="text-gray-800 hover:text-red-600 px-3 py-2 font-medium">Pricing</a>
+                    <a href="#" class="text-gray-800 hover:text-red-600 px-3 py-2 font-medium">About</a>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium transition duration-300">
+                        Free Trial
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-800 hover:text-red-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-2">
+            <a href="#" class="block px-3 py-2 text-gray-800 hover:text-red-600">Home</a>
+            <a href="#" class="block px-3 py-2 text-gray-800 hover:text-red-600">Courses</a>
+            <a href="#" class="block px-3 py-2 text-gray-800 hover:text-red-600">Teachers</a>
+            <a href="#" class="block px-3 py-2 text-gray-800 hover:text-red-600">Pricing</a>
+            <a href="#" class="block px-3 py-2 text-gray-800 hover:text-red-600">About</a>
+            <button class="mt-2 ml-3 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium">
+                Free Trial
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                        Master Chinese <span class="text-red-600">Faster</span> Than Ever
+                    </h1>
+                    <p class="mt-6 text-xl text-gray-600">
+                        Interactive, gamified Chinese lessons for K-12 students that make learning fun and effective. 
+                        Our AI-powered platform adapts to each student's learning style.
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-medium text-lg transition duration-300 shadow-lg">
+                            Start Free Trial
+                        </button>
+                        <button class="bg-white hover:bg-gray-100 text-gray-800 px-6 py-3 rounded-md font-medium text-lg transition duration-300 shadow-lg border border-gray-200">
+                            <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                        </button>
+                    </div>
+                    <div class="mt-8 flex items-center">
+                        <div class="flex -space-x-2">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/65.jpg" alt="">
+                        </div>
+                        <p class="ml-4 text-gray-600">
+                            <span class="font-semibold text-gray-900">10,000+</span> students learning with us
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative max-w-md mx-auto">
+                        <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                            <div class="bg-red-600 py-3 px-4 flex items-center">
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-300"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-300"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-300"></div>
+                                </div>
+                                <div class="ml-4 text-white text-sm font-medium">Interactive Lesson</div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 class="text-lg font-semibold text-gray-800">Lesson: Introducing Yourself</h3>
+                                    <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Beginner</span>
+                                </div>
+                                
+                                <div class="bg-gray-100 rounded-lg p-4 mb-4">
+                                    <div class="flex items-center mb-2">
+                                        <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">A</div>
+                                        <div class="ml-3 font-medium">Teacher Anna</div>
+                                    </div>
+                                    <p class="text-gray-700">"你好! 我叫安娜。你叫什么名字?"</p>
+                                    <p class="text-gray-500 text-sm mt-1">(Hello! My name is Anna. What's your name?)</p>
+                                </div>
+                                
+                                <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                                    <div class="flex items-center mb-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">Y</div>
+                                        <div class="ml-3 font-medium">Your response</div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <button class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-3 rounded border border-gray-200 text-sm">
+                                            我叫...
+                                        </button>
+                                        <button class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-3 rounded border border-gray-200 text-sm">
+                                            你好!
+                                        </button>
+                                        <button class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-3 rounded border border-gray-200 text-sm">
+                                            谢谢
+                                        </button>
+                                        <button class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-3 rounded border border-gray-200 text-sm">
+                                            再见
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="ml-1 text-sm text-gray-600">85% mastery</span>
+                                    </div>
+                                    <button class="text-red-600 hover:text-red-700 text-sm font-medium flex items-center">
+                                        Next lesson <i class="fas fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-yellow-100 rounded-full opacity-70"></div>
+                        <div class="absolute -top-8 -right-8 w-20 h-20 bg-blue-100 rounded-full opacity-70"></div>
+                    </div>
+                    
+                    <div class="absolute -bottom-16 right-0 w-32 h-32 bg-red-100 rounded-full opacity-40"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Mandarin Masters?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We combine the best teaching methods with cutting-edge technology to create the most effective Chinese learning experience.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">AI-Powered Learning</h3>
+                    <p class="text-gray-600">
+                        Our adaptive learning algorithm customizes lessons based on your progress, strengths, and weaknesses.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-gamepad text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Gamified Experience</h3>
+                    <p class="text-gray-600">
+                        Earn points, badges, and unlock new levels as you progress through interactive challenges.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chalkboard-teacher text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Certified Teachers</h3>
+                    <p class="text-gray-600">
+                        Learn from native-speaking teachers with years of experience teaching Chinese to young learners.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Learning Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Master Chinese Characters Visually</h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Our unique visual learning system helps students remember characters through storytelling, animations, and interactive exercises.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md character-card">
+                            <div class="text-5xl text-center chinese-font mb-3">人</div>
+                            <p class="text-gray-700 font-medium">Person</p>
+                            <p class="text-sm text-gray-500">Looks like a person standing with legs apart</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md character-card">
+                            <div class="text-5xl text-center chinese-font mb-3">山</div>
+                            <p class="text-gray-700 font-medium">Mountain</p>
+                            <p class="text-sm text-gray-500">Resembles three mountain peaks</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md character-card">
+                            <div class="text-5xl text-center chinese-font mb-3">水</div>
+                            <p class="text-gray-700 font-medium">Water</p>
+                            <p class="text-sm text-gray-500">Looks like flowing water</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md character-card">
+                            <div class="text-5xl text-center chinese-font mb-3">火</div>
+                            <p class="text-gray-700 font-medium">Fire</p>
+                            <p class="text-sm text-gray-500">Resembles flames rising up</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-16">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Stroke Order Practice</h3>
+                            <div class="stroke-order bg-gray-100 rounded-lg p-6 mb-6">
+                                <div class="text-9xl text-center chinese-font text-gray-800">写</div>
+                            </div>
+                            <div class="grid grid-cols-5 gap-2 mb-6">
+                                <div class="bg-red-100 rounded p-2 text-center">
+                                    <span class="text-xs font-medium text-red-800">1</span>
+                                </div>
+                                <div class="bg-yellow-100 rounded p-2 text-center">
+                                    <span class="text-xs font-medium text-yellow-800">2</span>
+                                </div>
+                                <div class="bg-green-100 rounded p-2 text-center">
+                                    <span class="text-xs font-medium text-green-800">3</span>
+                                </div>
+                                <div class="bg-blue-100 rounded p-2 text-center">
+                                    <span class="text-xs font-medium text-blue-800">4</span>
+                                </div>
+                                <div class="bg-purple-100 rounded p-2 text-center">
+                                    <span class="text-xs font-medium text-purple-800">5</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between">
+                                <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-md font-medium">
+                                    <i class="fas fa-undo-alt mr-2"></i> Reset
+                                </button>
+                                <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium">
+                                    <i class="fas fa-check-circle mr-2"></i> Check
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-blue-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Did You Know?</h3>
+                        <p class="text-gray-700 mb-4">
+                            Chinese characters are made up of radicals - smaller components that often hint at the character's meaning or pronunciation.
+                        </p>
+                        <div class="flex space-x-4">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-3xl chinese-font">女</div>
+                                <p class="text-xs text-gray-600 mt-1">Woman radical</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-3xl chinese-font">妈</div>
+                                <p class="text-xs text-gray-600 mt-1">Mother</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-3xl chinese-font">好</div>
+                                <p class="text-xs text-gray-600 mt-1">Good</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">What Parents & Students Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Don't just take our word for it - hear from our community of learners.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <img class="w-12 h-12 rounded-full" src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                            <p class="text-gray-600">Parent of 8-year-old</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        "My daughter went from struggling with basic greetings to having full conversations in just 3 months. The interactive games keep her engaged and excited to learn."
+                    </p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <img class="w-12 h-12 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Chen">
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900">David Chen</h4>
+                            <p class="text-gray-600">High School Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        "The teachers are amazing at explaining grammar concepts I've always found confusing. The AI practice sessions help me remember vocabulary much better than flashcards."
+                    </p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-white hover:bg-gray-100 text-gray-800 font-medium py-2 px-6 border border-gray-300 rounded-lg shadow-sm">
+                    See More Success Stories
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Choose the plan that fits your learning goals and budget.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 pricing-card transition duration-300">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
+                        <p class="text-gray-600">Great for casual learners</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-gray-900">$19</span>
+                        <span class="text-gray-600">/month</span>
+                    </div>
+                    <ul class="mb-8 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>10 live lessons/month</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>AI practice sessions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Basic progress tracking</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-red-400 mr-2"></i>
+                            <span>No 1-on-1 tutoring</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-4 rounded-md transition duration-300">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Popular Plan -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-red-500 pricing-card transform scale-105 transition duration-300 relative">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                        MOST POPULAR
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Premium</h3>
+                        <p class="text-gray-600">Best for serious learners</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-gray-900">$49</span>
+                        <span class="text-gray-600">/month</span>
+                    </div>
+                    <ul class="mb-8 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Unlimited live lessons</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Advanced AI practice</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Detailed progress reports</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>4 private tutoring sessions</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-md transition duration-300">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Family Plan -->
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 pricing-card transition duration-300">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Family</h3>
+                        <p class="text-gray-600">For multiple children</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-gray-900">$89</span>
+                        <span class="text-gray-600">/month</span>
+                    </div>
+                    <ul class="mb-8 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Up to 3 children</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Unlimited live lessons</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Family progress dashboard</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>8 private tutoring sessions</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-4 rounded-md transition duration-300">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-600">
+                    Not sure which plan is right for you? <a href="#" class="text-red-600 hover:text-red-700 font-medium">Contact our advisors</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4">Ready to start your Chinese learning journey?</h2>
+                    <p class="text-xl text-red-100">
+                        Join thousands of students who are mastering Mandarin with our proven methods.
+                    </p>
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <div class="bg-white rounded-lg shadow-xl p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">7-Day Free Trial</h3>
+                        <form>
+                            <div class="mb-4">
+                                <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            <div class="mb-4">
+                                <select class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                    <option>Select Grade Level</option>
+                                    <option>Elementary School (K-5)</option>
+                                    <option>Middle School (6-8)</option>
+                                    <option>High School (9-12)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md transition duration-300">
+                                Start Free Trial
+                            </button>
+                        </form>
+                        <p class="text-xs text-gray-500 mt-4">
+                            By signing up, you agree to our <a href="#" class="text-red-600 hover:text-red-700">Terms of Service</a> and <a href="#" class="text-red-600 hover:text-red-700">Privacy Policy</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Mandarin Masters</h3>
+                    <p class="text-gray-400">
+                        The most effective and engaging way for K-12 students to learn Chinese.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Learning Tips</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Worksheets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Character Sheets</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="text-gray-400">
+                        Email: <a href="mailto:hello@mandarinmasters.com" class="hover:text-white">hello@mandarinmasters.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    © 2023 Mandarin Masters. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Animate elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.character-card, .pricing-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Add floating animation to some characters
+        const characters = document.querySelectorAll('.animated-character');
+        characters.forEach((char, index) => {
+            char.style.animationDelay = `${index * 0.5}s`;
+        });
+    </script>
+</body>
+</html>

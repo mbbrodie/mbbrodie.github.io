@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axolotl Juice - Regenerative Healing Elixir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f9ff;
+            overflow-x: hidden;
+        }
+        
+        .axolotl-gradient {
+            background: linear-gradient(135deg, #8be9fd 0%, #50fa7b 50%, #ff79c6 100%);
+        }
+        
+        .product-card {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .wave-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .wave-bg svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        
+        .wave-bg .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(139, 233, 253, 0.7);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-water text-3xl text-cyan-400 mr-2"></i>
+                        <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">AXOLOTL JUICE</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="text-gray-700 hover:text-cyan-500 px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                        <a href="#science" class="text-gray-700 hover:text-emerald-500 px-3 py-2 rounded-md text-sm font-medium">Science</a>
+                        <a href="#testimonials" class="text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium">Testimonials</a>
+                        <a href="#pricing" class="text-gray-700 hover:text-purple-500 px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <button class="axolotl-gradient text-white px-6 py-2 rounded-full font-bold hover:shadow-lg transition-all duration-300">
+                        Pre-order Now
+                    </button>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-white hover:bg-cyan-400 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mt-12 sm:mt-16 lg:mt-0">
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                            <span class="block">Regenerate Your</span>
+                            <span class="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Body & Mind</span>
+                        </h1>
+                        <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            Harnessing the incredible regenerative powers of the axolotl, our revolutionary elixir promotes cellular regeneration, rapid healing, and enhanced vitality.
+                        </p>
+                        <div class="mt-8 sm:flex sm:justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                            <div class="rounded-md shadow">
+                                <button class="axolotl-gradient w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white hover:shadow-lg md:py-4 md:text-lg md:px-10 transition-all duration-300 pulse">
+                                    Try Axolotl Juice
+                                </button>
+                            </div>
+                            <div class="rounded-md shadow">
+                                <button class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-cyan-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition-all duration-300">
+                                    <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative mt-12 sm:mt-16 lg:mt-0">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden floating">
+                        <div class="relative w-full h-0" style="padding-bottom: 100%;">
+                            <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Axolotl Juice bottle">
+                            <div class="absolute inset-0 bg-gradient-to-t from-cyan-400/30 to-emerald-400/30"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                <h3 class="text-2xl font-bold">Limited Edition</h3>
+                                <p class="mt-1">First 1000 bottles come with premium packaging</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-10 -left-10 w-32 h-32 rounded-full bg-cyan-300/30 -z-10"></div>
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-emerald-300/30 -z-10"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-pink-300/20 -z-10"></div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-bg">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Revolutionary Healing Properties
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Inspired by nature's most remarkable regenerator
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Feature 1 -->
+                    <div class="product-card pt-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="px-6 pb-8">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-cyan-100 text-cyan-600 mx-auto">
+                                <i class="fas fa-heartbeat text-xl"></i>
+                            </div>
+                            <div class="mt-5 text-center">
+                                <h3 class="text-lg font-medium text-gray-900">Cellular Regeneration</h3>
+                                <p class="mt-2 text-base text-gray-500">
+                                    Stimulates stem cell production to repair damaged tissues at an unprecedented rate.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50">
+                            <div class="flex items-center justify-center">
+                                <span class="text-sm font-medium text-cyan-600">Learn more</span>
+                                <i class="fas fa-chevron-right ml-1 text-xs text-cyan-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="product-card pt-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="px-6 pb-8">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-emerald-100 text-emerald-600 mx-auto">
+                                <i class="fas fa-brain text-xl"></i>
+                            </div>
+                            <div class="mt-5 text-center">
+                                <h3 class="text-lg font-medium text-gray-900">Neural Enhancement</h3>
+                                <p class="mt-2 text-base text-gray-500">
+                                    Promotes neurogenesis and synaptic plasticity for improved cognitive function.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50">
+                            <div class="flex items-center justify-center">
+                                <span class="text-sm font-medium text-emerald-600">Learn more</span>
+                                <i class="fas fa-chevron-right ml-1 text-xs text-emerald-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="product-card pt-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <div class="px-6 pb-8">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-100 text-pink-600 mx-auto">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div class="mt-5 text-center">
+                                <h3 class="text-lg font-medium text-gray-900">Age Reversal</h3>
+                                <p class="mt-2 text-base text-gray-500">
+                                    Telomere lengthening compounds help slow and reverse visible signs of aging.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50">
+                            <div class="flex items-center justify-center">
+                                <span class="text-sm font-medium text-pink-600">Learn more</span>
+                                <i class="fas fa-chevron-right ml-1 text-xs text-pink-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science Section -->
+    <section id="science" class="py-16 bg-gradient-to-b from-cyan-50 to-emerald-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="relative">
+                    <div class="relative mx-auto w-full rounded-lg shadow-xl overflow-hidden">
+                        <img class="w-full h-auto" src="https://images.unsplash.com/photo-1581093450021-33f3ab354e05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Science behind Axolotl Juice">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyan-400/20 to-emerald-400/20"></div>
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-cyan-200/30 -z-10"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-emerald-200/30 -z-10"></div>
+                </div>
+                <div class="mt-12 lg:mt-0">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        The Science Behind Axolotl Juice
+                    </h2>
+                    <p class="mt-4 text-lg text-gray-600">
+                        Our breakthrough formula is based on decades of research into the axolotl's remarkable ability to regenerate entire limbs, organs, and even parts of its brain.
+                    </p>
+                    <div class="mt-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-cyan-100 text-cyan-600">
+                                    <i class="fas fa-dna"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Genetic Activation</h3>
+                                <p class="mt-2 text-base text-gray-600">
+                                    Contains specialized compounds that activate dormant human genes similar to those responsible for axolotl regeneration.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-emerald-100 text-emerald-600">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Bioactive Peptides</h3>
+                                <p class="mt-2 text-base text-gray-600">
+                                    Proprietary blend of bioactive peptides that stimulate tissue repair and reduce inflammation at the cellular level.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-100 text-pink-600">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Clinical Trials</h3>
+                                <p class="mt-2 text-base text-gray-600">
+                                    In double-blind studies, participants showed 300% faster wound healing and significant reduction in inflammatory markers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Healing Stories
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Real people experiencing the Axolotl Juice difference
+                </p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-lg shadow-md p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Sarah J.</h3>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600 italic">
+                            "After just two weeks of using Axolotl Juice, my chronic joint pain disappeared. I've tried everything before this - nothing compares!"
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-1"></i>
+                        <span>Posted 3 months ago</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-lg shadow-md p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/54.jpg" alt="Michael T.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Michael T.</h3>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600 italic">
+                            "I'm a professional athlete and Axolotl Juice has cut my recovery time in half. My trainer can't believe how quickly I bounce back from injuries now."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-1"></i>
+                        <span>Posted 1 month ago</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-lg shadow-md p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Elena R.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Elena R.</h3>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600 italic">
+                            "At 62, I was starting to feel my age. After 3 months on Axolotl Juice, my skin looks 10 years younger and I have the energy I had in my 40s!"
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-1"></i>
+                        <span>Posted 2 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-gradient-to-b from-cyan-50 to-emerald-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Choose Your Regeneration Plan
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Affordable options for every healing journey
+                </p>
+            </div>
+
+            <div class="mt-16 space-y-8 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8">
+                <!-- Basic Plan -->
+                <div class="product-card bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <div class="px-6 py-8">
+                        <h3 class="text-lg font-medium text-gray-900">Starter Kit</h3>
+                        <p class="mt-4 text-gray-500">Perfect for first-time users</p>
+                        <div class="mt-6 flex items-baseline">
+                            <span class="text-4xl font-extrabold text-gray-900">$49</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/month</span>
+                        </div>
+                        <ul role="list" class="mt-8 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-cyan-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">1 bottle (30-day supply)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-cyan-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Beginner's guide to regeneration</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-cyan-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Email support</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-6 py-4 bg-gray-50">
+                        <button class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition-colors duration-300">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Popular Plan -->
+                <div class="product-card bg-white border-2 border-cyan-400 rounded-lg shadow-xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2 glow">
+                    <div class="px-6 py-8">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium text-gray-900">Regeneration Pro</h3>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-100 text-cyan-800">
+                                Most Popular
+                            </span>
+                        </div>
+                        <p class="mt-4 text-gray-500">Optimal healing protocol</p>
+                        <div class="mt-6 flex items-baseline">
+                            <span class="text-4xl font-extrabold text-gray-900">$99</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/month</span>
+                        </div>
+                        <ul role="list" class="mt-8 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-emerald-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">3 bottles (90-day supply)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-emerald-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Advanced regeneration techniques</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-emerald-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Priority email support</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-emerald-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Monthly wellness coaching session</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-6 py-4 bg-gray-50">
+                        <button class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-600 hover:to-emerald-600 transition-colors duration-300">
+                            Upgrade Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="product-card bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <div class="px-6 py-8">
+                        <h3 class="text-lg font-medium text-gray-900">Complete Transformation</h3>
+                        <p class="mt-4 text-gray-500">For maximum regeneration</p>
+                        <div class="mt-6 flex items-baseline">
+                            <span class="text-4xl font-extrabold text-gray-900">$199</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/month</span>
+                        </div>
+                        <ul role="list" class="mt-8 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-pink-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">6 bottles (180-day supply)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-pink-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">VIP regeneration protocol</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-pink-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">24/7 concierge support</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-pink-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Bi-weekly coaching sessions</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-pink-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Personalized supplement plan</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-6 py-4 bg-gray-50">
+                        <button class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 transition-colors duration-300">
+                            Go Premium
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-cyan-500 to-emerald-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-extrabold sm:text-4xl">
+                        Ready to Experience Regeneration?
+                    </h2>
+                    <p class="mt-4 text-lg">
+                        Join thousands who have transformed their health with Axolotl Juice. Limited supply available.
+                    </p>
+                    <div class="mt-8 flex">
+                        <input type="email" placeholder="Enter your email" class="px-4 py-3 w-full rounded-l-lg focus:outline-none text-gray-900">
+                        <button class="bg-gray-900 text-white px-6 py-3 rounded-r-lg font-bold hover:bg-black transition-colors duration-300">
+                            Get Started
+                        </button>
+                    </div>
+                    <p class="mt-3 text-sm text-cyan-100">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+                <div class="mt-12 lg:mt-0">
+                    <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-white/20 p-3 rounded-full">
+                                <i class="fas fa-truck text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Free Worldwide Shipping</h3>
+                                <p class="mt-1 text-sm">On all orders over $100</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex items-center">
+                            <div class="flex-shrink-0 bg-white/20 p-3 rounded-full">
+                                <i class="fas fa-undo text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">90-Day Money Back</h3>
+                                <p class="mt-1 text-sm">Not satisfied? Get a full refund</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex items-center">
+                            <div class="flex-shrink-0 bg-white/20 p-3 rounded-full">
+                                <i class="fas fa-lock text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Secure Payments</h3>
+                                <p class="mt-1 text-sm">All transactions are encrypted</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase">Products</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Axolotl Juice</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Regeneration Cream</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Brain Boost Capsules</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Immune Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase">Support</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase">Legal</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-water text-2xl text-cyan-400 mr-2"></i>
+                    <span class="text-xl font-bold">AXOLOTL JUICE</span>
+                </div>
+                <p class="mt-4 md:mt-0 text-gray-400 text-sm">
+                    &copy; 2023 Axolotl Labs. All rights reserved.
+                </p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for the floating bottle
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event to all buttons with pulse animation
+            const pulseButtons = document.querySelectorAll('.pulse');
+            pulseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Thank you for your interest in Axolotl Juice! Our team will contact you shortly.');
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

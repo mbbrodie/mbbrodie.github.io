@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Framework for Challenging Executive Orders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .law-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .category-tab.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .search-highlight {
+            background-color: #fef08a;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-blue-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <i class="fas fa-gavel text-3xl"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold">Legal Framework for Challenging Executive Orders</h1>
+                </div>
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Search laws..." class="w-full pl-10 pr-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-6">Comprehensive Legal Authorities</h2>
+                <p class="text-gray-700 mb-6">
+                    Below is an exhaustive list of constitutional provisions, federal statutes, and judicial doctrines that form the legal framework for challenging executive orders in U.S. courts. Click on any category to filter the list.
+                </p>
+                
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <button class="category-tab active px-4 py-2 rounded-full border border-gray-300 font-medium" data-category="all">All Laws</button>
+                    <button class="category-tab px-4 py-2 rounded-full border border-gray-300 font-medium" data-category="constitutional">Constitutional</button>
+                    <button class="category-tab px-4 py-2 rounded-full border border-gray-300 font-medium" data-category="statutory">Statutory</button>
+                    <button class="category-tab px-4 py-2 rounded-full border border-gray-300 font-medium" data-category="doctrine">Doctrines</button>
+                    <button class="category-tab px-4 py-2 rounded-full border border-gray-300 font-medium" data-category="procedural">Procedural</button>
+                </div>
+                
+                <div id="lawsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Constitutional Provisions -->
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="constitutional" onclick="showLawDetails('article1')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-scroll text-red-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Article I, Section 1</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Vests all legislative powers in Congress, limiting presidential lawmaking authority.</p>
+                        <div class="text-xs text-gray-500">U.S. Constitution</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="constitutional" onclick="showLawDetails('article2-1')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-scroll text-red-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Article II, Section 1</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Defines executive power, establishing the "vesting clause" that courts interpret to define presidential authority.</p>
+                        <div class="text-xs text-gray-500">U.S. Constitution</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="constitutional" onclick="showLawDetails('article2-3')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-scroll text-red-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Article II, Section 3</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">"Take Care" clause requiring the President to faithfully execute laws, not make them.</p>
+                        <div class="text-xs text-gray-500">U.S. Constitution</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="constitutional" onclick="showLawDetails('first-amendment')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-scroll text-red-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">First Amendment</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Basis for challenges to orders restricting speech, religion, assembly, or petition rights.</p>
+                        <div class="text-xs text-gray-500">U.S. Constitution</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="constitutional" onclick="showLawDetails('fifth-amendment')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-scroll text-red-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Fifth Amendment</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Due Process and Takings clauses used to challenge orders affecting property rights or imposing penalties without process.</p>
+                        <div class="text-xs text-gray-500">U.S. Constitution</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="constitutional" onclick="showLawDetails('tenth-amendment')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-scroll text-red-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Tenth Amendment</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Used by states to challenge orders infringing on state sovereignty or powers.</p>
+                        <div class="text-xs text-gray-500">U.S. Constitution</div>
+                    </div>
+                    
+                    <!-- Statutory Laws -->
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="statutory"  onclick="showLawDetails('apa')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Administrative Procedure Act (5 U.S.C. §§ 551-559)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Primary statute for challenging executive actions as "arbitrary and capricious" or exceeding statutory authority.</p>
+                        <div class="text-xs text-gray-500">5 U.S.C. §§ 551-559</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="statutory" onclick="showLawDetails('federal-register')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Federal Register Act (44 U.S.C. § 1505)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Requires publication of executive orders in Federal Register for legal effect.</p>
+                        <div class="text-xs text-gray-500">44 U.S.C. § 1505</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="statutory" onclick="showLawDetails('national-emergencies')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">National Emergencies Act (50 U.S.C. §§ 1601-1651)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Limits presidential emergency powers and provides congressional oversight mechanisms.</p>
+                        <div class="text-xs text-gray-500">50 U.S.C. §§ 1601-1651</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="statutory" onclick="showLawDetails('congressional-review')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Congressional Review Act (5 U.S.C. §§ 801-808)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Allows Congress to overturn certain executive actions with majority vote.</p>
+                        <div class="text-xs text-gray-500">5 U.S.C. §§ 801-808</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="statutory" onclick="showLawDetails('anti-deficiency')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Anti-Deficiency Act (31 U.S.C. § 1341)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Prohibits executive spending without congressional appropriation.</p>
+                        <div class="text-xs text-gray-500">31 U.S.C. § 1341</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="statutory" onclick="showLawDetails('nondelegation')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Nondelegation Doctrine</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Judicial principle that Congress cannot delegate legislative powers without intelligible standards.</p>
+                        <div class="text-xs text-gray-500">Case Law Principle</div>
+                    </div>
+                    
+                    <!-- Judicial Doctrines -->
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="doctrine" onclick="showLawDetails('chevron')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-purple-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-balance-scale text-purple-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Chevron Deference</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Framework for reviewing agency interpretations of ambiguous statutes (potentially weakened by recent cases).</p>
+                        <div class="text-xs text-gray-500">Chevron U.S.A., Inc. v. NRDC, 467 U.S. 837 (1984)</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="doctrine" onclick="showLawDetails('major-questions')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-purple-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-balance-scale text-purple-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Major Questions Doctrine</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Requires clear congressional authorization for executive actions of major significance.</p>
+                        <div class="text-xs text-gray-500">West Virginia v. EPA, 597 U.S. ___ (2022)</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="doctrine" onclick="showLawDetails('youngstown')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-purple-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-balance-scale text-purple-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Youngstown Framework</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Three-tiered test for evaluating presidential power (congressional authorization, silence, or opposition).</p>
+                        <div class="text-xs text-gray-500">Youngstown Sheet & Tube Co. v. Sawyer, 343 U.S. 579 (1952)</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="doctrine" onclick="showLawDetails('zone-interests')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-purple-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-balance-scale text-purple-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Zone of Interests Test</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Determines whether a plaintiff is within the class of parties Congress authorized to sue.</p>
+                        <div class="text-xs text-gray-500">Lexmark Int'l, Inc. v. Static Control Components, Inc., 572 U.S. 118 (2014)</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="doctrine" onclick="showLawDetails('nondelegation')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-purple-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-balance-scale text-purple-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Nondelegation Doctrine</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Limits Congress's ability to delegate legislative powers to the executive branch.</p>
+                        <div class="text-xs text-gray-500">A.L.A. Schechter Poultry Corp. v. United States, 295 U.S. 495 (1935)</div>
+                    </div>
+                    
+                    <!-- Procedural Laws -->
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="procedural" onclick="showLawDetails('fed-questions')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-gavel text-green-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Federal Question Jurisdiction (28 U.S.C. § 1331)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Grants federal courts jurisdiction over cases arising under the Constitution or federal laws.</p>
+                        <div class="text-xs text-gray-500">28 U.S.C. § 1331</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="procedural" onclick="showLawDetails('declaratory')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-gavel text-green-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Declaratory Judgment Act (28 U.S.C. §§ 2201-2202)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Allows courts to declare rights and legal relations without ordering specific relief.</p>
+                        <div class="text-xs text-gray-500">28 U.S.C. §§ 2201-2202</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="procedural" onclick="showLawDetails('fed-rules')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-gavel text-green-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Federal Rules of Civil Procedure</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Govern procedures for filing lawsuits, including Rule 65 for injunctions.</p>
+                        <div class="text-xs text-gray-500">28 U.S.C. Appendix</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="procedural" onclick="showLawDetails('all-writs')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-gavel text-green-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">All Writs Act (28 U.S.C. § 1651)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Authorizes courts to issue writs necessary in aid of their jurisdiction.</p>
+                        <div class="text-xs text-gray-500">28 U.S.C. § 1651</div>
+                    </div>
+                    
+                    <div class="law-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition duration-300" data-category="procedural" onclick="showLawDetails('admin-order-act')">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-2 rounded-lg mr-4">
+                                <i class="fas fa-gavel text-green-600"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Administrative Orders Review Act (28 U.S.C. § 2342)</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Provides specific procedures for reviewing certain executive agency actions.</p>
+                        <div class="text-xs text-gray-500">28 U.S.C. § 2342</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="bg-blue-50 rounded-xl shadow-md p-8 mb-8">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4">Key Legal Principles</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-lg mb-2 text-blue-800"><i class="fas fa-lightbulb mr-2"></i>Standing Requirements</h3>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Injury-in-fact:</strong> Concrete and particularized harm</li>
+                        <li><strong>Causation:</strong> Harm traceable to challenged action</li>
+                        <li><strong>Redressability:</strong> Favorable decision likely to remedy harm</li>
+                        <li><strong>Zone of interests:</strong> Plaintiff's interests protected by law</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-lg mb-2 text-blue-800"><i class="fas fa-lightbulb mr-2"></i>Standards of Review</h3>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Arbitrary & Capricious:</strong> APA standard for agency actions</li>
+                        <li><strong>Rational Basis:</strong> Minimal scrutiny for most executive actions</li>
+                        <li><strong>Strict Scrutiny:</strong> For fundamental rights or suspect classifications</li>
+                        <li><strong>Major Questions Doctrine:</strong> Clear statement requirement</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+		<!-- Law Details Modal -->
+		<div id="lawModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+				<div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+						<div class="p-6">
+								<div class="flex justify-between items-start mb-4">
+										<div>
+												<h3 id="modalTitle" class="text-2xl font-bold text-blue-900"></h3>
+												<div id="modalSubtitle" class="text-sm text-gray-500 mt-1"></div>
+										</div>
+										<button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+												<i class="fas fa-times"></i>
+										</button>
+								</div>
+								<div id="modalDescription" class="text-gray-700 mb-4"></div>
+								<div id="modalDetails" class="space-y-3"></div>
+						</div>
+				</div>
+		</div>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-gavel text-2xl mr-3"></i>
+                        <span class="text-xl font-bold">Executive Order Challenge Toolkit</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Comprehensive legal reference for constitutional challenges</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>This resource provides general legal information and does not constitute professional legal advice.</p>
+                <p class="mt-2">© 2023 Executive Order Challenge Toolkit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+	function showLawDetails(lawId) {
+    // Get the law details from the data object
+    const law = lawDetails[lawId];
+    
+    // If the law doesn't exist, exit the function
+    if (!law) return;
+    
+    // Get the modal elements
+    const modal = document.getElementById('lawModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalDetails = document.getElementById('modalDetails');
+    
+    // Populate the modal with the law details
+    modalTitle.textContent = law.title;
+    modalSubtitle.textContent = law.subtitle;
+    modalDescription.textContent = law.description;
+    
+    // Clear any existing details
+    modalDetails.innerHTML = '';
+    
+    // Add each detail point as a list item
+    law.details.forEach(detail => {
+        const detailItem = document.createElement('div');
+        detailItem.className = 'flex items-start';
+        detailItem.innerHTML = `
+            <span class="text-blue-500 mr-2 mt-1">•</span>
+            <span>${detail}</span>
+        `;
+        modalDetails.appendChild(detailItem);
+    });
+    
+    // Show the modal
+    modal.classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('lawModal').classList.add('hidden');
+}
+    // Law details data
+    const lawDetails = {
+        'article1': {
+            title: 'Article I, Section 1',
+            subtitle: 'U.S. Constitution',
+            description: 'Vests all legislative powers in Congress, limiting presidential lawmaking authority.',
+            details: [
+                'Establishes the principle of separation of powers between branches of government',
+                'Forms basis for challenges to executive orders that create new laws rather than implement existing ones',
+                'Cited in Youngstown Sheet & Tube Co. v. Sawyer (1952) striking down Truman\'s steel mill seizure',
+                'Requires clear congressional authorization for significant policy changes'
+            ]
+        },
+        'article2-1': {
+            title: 'Article II, Section 1',
+            subtitle: 'U.S. Constitution',
+            description: 'Defines executive power, establishing the "vesting clause" that courts interpret to define presidential authority.',
+            details: [
+                'Grants the President "executive power" but scope is debated (limited vs. expansive views)',
+                'Basis for inherent presidential powers in foreign affairs and national security',
+                'Contrasted with Article I\'s more specific enumeration of congressional powers',
+                'Interpreted narrowly in cases like Hamdan v. Rumsfeld (2006)'
+            ]
+        },
+        'article2-3': {
+            title: 'Article II, Section 3',
+            subtitle: 'U.S. Constitution',
+            description: '"Take Care" clause requiring the President to faithfully execute laws, not make them.',
+            details: [
+                'Prohibits presidential non-enforcement or selective enforcement of laws',
+                'Basis for challenges to executive orders that contradict statutory language',
+                'Requires proper statutory interpretation under Chevron framework',
+                'Cited in Arizona v. United States (2012) regarding immigration enforcement'
+            ]
+        },
+        'first-amendment': {
+            title: 'First Amendment',
+            subtitle: 'U.S. Constitution',
+            description: 'Basis for challenges to orders restricting speech, religion, assembly, or petition rights.',
+            details: [
+                'Applies to executive orders through incorporation under the 14th Amendment',
+                'Strict scrutiny applies to content-based restrictions on speech',
+                'Used to challenge orders affecting religious practices (e.g., travel bans)',
+                'Protects against compelled speech in executive mandates'
+            ]
+        },
+        'fifth-amendment': {
+            title: 'Fifth Amendment',
+            subtitle: 'U.S. Constitution',
+            description: 'Due Process and Takings clauses used to challenge orders affecting property rights or imposing penalties without process.',
+            details: [
+                'Procedural due process requires notice and opportunity to be heard',
+                'Substantive due process protects against arbitrary government actions',
+                'Takings clause requires compensation for property seizures',
+                'Applied in challenges to pandemic-related business closures'
+            ]
+        },
+        'tenth-amendment': {
+            title: 'Tenth Amendment',
+            subtitle: 'U.S. Constitution',
+            description: 'Used by states to challenge orders infringing on state sovereignty or powers.',
+            details: [
+                'Protects state police powers (health, safety, welfare)',
+                'Basis for anti-commandeering doctrine (Printz v. United States)',
+                'Used in challenges to federal mandates on state governments',
+                'Invoked in cases involving education, environmental, and healthcare policies'
+            ]
+        },
+        'apa': {
+            title: 'Administrative Procedure Act',
+            subtitle: '5 U.S.C. §§ 551-559',
+            description: 'Primary statute for challenging executive actions as "arbitrary and capricious" or exceeding statutory authority.',
+            details: [
+                'Section 706(2)(A) establishes arbitrary/capricious standard',
+                'Requires reasoned decision-making with consideration of relevant factors',
+                'Mandates notice-and-comment for significant regulatory actions',
+                'Exemptions for foreign affairs and military authority'
+            ]
+        },
+        'federal-register': {
+            title: 'Federal Register Act',
+            subtitle: '44 U.S.C. § 1505',
+            description: 'Requires publication of executive orders in Federal Register for legal effect.',
+            details: [
+                'Provides public notice of executive actions',
+                'Establishes effective dates for published orders',
+                'Includes requirements for organization and indexing',
+                'Codified procedures for presidential proclamations'
+            ]
+        },
+        'national-emergencies': {
+            title: 'National Emergencies Act',
+            subtitle: '50 U.S.C. §§ 1601-1651',
+            description: 'Limits presidential emergency powers and provides congressional oversight mechanisms.',
+            details: [
+                'Requires presidential declaration specifying emergency powers used',
+                'Provides for automatic termination after one year unless renewed',
+                'Allows congressional termination via concurrent resolution',
+                'Contains reporting requirements to Congress'
+            ]
+        },
+        'congressional-review': {
+            title: 'Congressional Review Act',
+            subtitle: '5 U.S.C. §§ 801-808',
+            description: 'Allows Congress to overturn certain executive actions with majority vote.',
+            details: [
+                '60-day review period for major rules',
+                'Simple majority vote in both houses plus presidential signature',
+                'Prevents reissuing of substantially similar rules',
+                'Used to overturn 17 rules as of 2023'
+            ]
+        },
+        'anti-deficiency': {
+            title: 'Anti-Deficiency Act',
+            subtitle: '31 U.S.C. § 1341',
+            description: 'Prohibits executive spending without congressional appropriation.',
+            details: [
+                'Criminal penalties for violations (rarely enforced)',
+                'Exceptions for emergencies involving life/property',
+                'Basis for government shutdown litigation',
+                'Requires apportionment of funds by OMB'
+            ]
+        },
+        'nondelegation': {
+            title: 'Nondelegation Doctrine',
+            subtitle: 'Case Law Principle',
+            description: 'Judicial principle that Congress cannot delegate legislative powers without intelligible standards.',
+            details: [
+                'Rooted in Article I, Section 1 vesting clause',
+                'Rarely invoked since 1935 (Schechter Poultry case)',
+                'Revived in recent cases like Gundy v. United States',
+                'Requires "intelligible principle" for delegated authority'
+            ]
+        },
+        'chevron': {
+            title: 'Chevron Deference',
+            subtitle: 'Chevron U.S.A., Inc. v. NRDC, 467 U.S. 837 (1984)',
+            description: 'Framework for reviewing agency interpretations of ambiguous statutes (potentially weakened by recent cases).',
+            details: [
+                'Two-step test: 1) Clear congressional intent? 2) Reasonable agency interpretation?',
+                'Applies when Congress has delegated authority to agency',
+                'Facing potential overturning or modification',
+                'Criticized for expanding executive power'
+            ]
+        },
+				'youngstown': {
+    "title": "Youngstown Framework",
+    "subtitle": "Youngstown Sheet & Tube Co. v. Sawyer, 343 U.S. 579 (1952)",
+    "description": "Three-tiered test for evaluating presidential power in separation of powers disputes.",
+    "details": [
+        "1. Congress authorizes → strongest presidential authority",
+        "2. Congress is silent → 'zone of twilight' where validity depends on circumstances",
+        "3. Congress opposes → weakest presidential authority (presumption of unconstitutionality)",
+        "Often cited in executive power cases (e.g., war powers, emergency actions)"
+    ]
+},
+		'zone-interests': {
+    "title": "Zone of Interests Test",
+    "subtitle": "Lexmark Int'l, Inc. v. Static Control Components, Inc., 572 U.S. 118 (2014)",
+    "description": "Determines whether a plaintiff has standing under a given statute.",
+    "details": [
+        "Asks whether the plaintiff's interests are 'arguably within the zone of interests' protected by the statute",
+        "A prudential (not constitutional) standing requirement",
+        "Relaxed in recent years (no need for statutory 'beneficiary' status)",
+        "Applies in APA and statutory cases"
+    ]
+},
+		'major-questions':{
+    "title": "Major Question Doctrine",
+    "subtitle": "E.g., West Virginia v. EPA, 597 U.S. ___ (2022)",
+    "description": "Requires clear congressional authorization for agency actions of vast economic or political significance.",
+    "details": [
+        "Agencies cannot decide 'major questions' without explicit statutory authority",
+        "Rooted in separation of powers concerns",
+        "Used to strike down expansive regulatory actions (e.g., OSHA's vaccine mandate, EPA's Clean Power Plan)",
+        "Increasingly invoked by the Roberts Court"
+    ]
+},
+
+
+				'fed-questions': {
+						"title": "Federal Question Jurisdiction",
+						"subtitle": "28 U.S.C. § 1331",
+						"description": "Grants federal courts jurisdiction over cases 'arising under' federal law.",
+						"details": [
+								"Applies to constitutional, statutory, or treaty-based claims",
+								"Well-Pleaded Complaint Rule: Federal issue must appear on the face of the plaintiff's complaint",
+								"No federal jurisdiction if federal issue is only a defense",
+								"Exceptions: Grable doctrine (substantial federal issue embedded in state claim)"
+						]
+				},
+				'declaratory': {
+						"title": "Declaratory Judgment Act",
+						"subtitle": "28 U.S.C. §§ 2201–2202",
+						"description": "Allows parties to seek a judicial declaration of rights before a coercive lawsuit arises.",
+						"details": [
+								"Provides pre-enforcement review (e.g., constitutional challenges to laws)",
+								"Requires an 'actual controversy' (Article III standing still applies)",
+								"Discretionary—courts may decline to hear declaratory actions",
+								"Common in IP, insurance, and constitutional litigation"
+						]
+				},
+				'fed-rules': {
+						"title": "Federal Rules of Civil Procedure",
+						"subtitle": "28 U.S.C. (Rules Enabling Act)",
+						"description": "Govern procedure in U.S. district courts, adopted under the Rules Enabling Act.",
+						"details": [
+								"Includes rules on pleadings (Rule 8), discovery (Rules 26–37), summary judgment (Rule 56), etc.",
+								"Must not abridge substantive rights (Erie Doctrine applies)",
+								"Amended periodically (e.g., 2015 proportionality amendment to discovery rules)",
+								"Interpreted liberally to secure 'just, speedy, and inexpensive' resolution"
+						]
+				},
+				'all-writs': {
+						"title": "All Writs Act",
+						"subtitle": "28 U.S.C. § 1651",
+						"description": "Authorizes courts to issue writs 'necessary or appropriate' in aid of jurisdiction.",
+						"details": [
+								"Used for injunctions, habeas corpus, and extraordinary remedies",
+								"Limited by statutory and constitutional constraints (e.g., cannot create new jurisdiction)",
+								"Invoked in national security cases (e.g., Apple-FBI encryption dispute)",
+								"Narrowly interpreted in modern times"
+						]
+				},
+				'admin-order-act': {
+						"title": "Administrative Orders Review Act",
+						"subtitle": "28 U.S.C. §§ 2341–2351 (Hobbs Act)",
+						"description": "Channels judicial review of certain agency actions to federal courts of appeals.",
+						"details": [
+								"Applies to agencies like FCC, FTC, NLRB, and EPA",
+								"Prevents district court challenges to specified agency orders",
+								"Requires petitions for review within 60 days",
+								"Exclusive jurisdiction prevents collateral attacks"
+						]
+				}
+		}
+			
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category filtering
+            const tabs = document.querySelectorAll('.category-tab');
+            const lawCards = document.querySelectorAll('.law-card');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    
+                    // Filter cards
+                    lawCards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                lawCards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const isMatch = text.includes(searchTerm) || title.includes(searchTerm);
+                    
+                    if (isMatch) {
+                        card.style.display = 'block';
+                        
+                        // Highlight matching text (simplified)
+                        if (searchTerm.length > 2) {
+                            const regex = new RegExp(searchTerm, 'gi');
+                            const cardHTML = card.innerHTML;
+                            card.innerHTML = cardHTML.replace(regex, match => 
+                                `<span class="search-highlight">${match}</span>`
+                            );
+                        }
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

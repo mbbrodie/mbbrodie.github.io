@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GhostFaceNet Face Recognition</title>
+		<!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .upload-area {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .preview {
+            display: flex;
+            gap: 20px;
+        }
+        .image-box {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .image-box img {
+            max-width: 100%;
+            max-height: 300px;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        #loading {
+            display: none;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>GhostFaceNet Face Recognition</h1>
+        
+        <div class="upload-area" id="uploadArea">
+            <p>Drag & drop images here or click to select (multiple allowed)</p>
+            <input type="file" id="fileInput" accept="image/*" multiple style="display: none;">
+        </div>
+        
+        <div id="loading">
+            <p>Loading model...</p>
+            <progress></progress>
+        </div>
+        
+        <div class="preview">
+            <div class="image-box">
+                <h3>Input Images</h3>
+                <div id="inputImagesContainer" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+            </div>
+            <div class="image-box">
+                <h3>Processed Images (112x112)</h3>
+                <div id="processedImagesContainer" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+            </div>
+        </div>
+        
+        <div class="results">
+            <h3>Clustering Results</h3>
+            <div>
+                <label for="threshold">Similarity Threshold:</label>
+                <input type="range" id="threshold" min="0.01" max="1.0" step="0.01" value="0.7">
+                <span id="thresholdValue">0.7</span>
+                <button id="clusterButton">Cluster Images</button>
+            </div>
+            <div id="clustersContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // Model variables
+        let model;
+        let allImages = [];
+        let allEmbeddings = [];
+        const MODEL_URL = './weights/model.json';
+        const INPUT_SHAPE = [112, 112];
+        
+        // DOM elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const inputImagesContainer = document.getElementById('inputImagesContainer');
+        const processedImagesContainer = document.getElementById('processedImagesContainer');
+        const clustersContainer = document.getElementById('clustersContainer');
+        const loadingDiv = document.getElementById('loading');
+        const thresholdSlider = document.getElementById('threshold');
+        const thresholdValue = document.getElementById('thresholdValue');
+        const clusterButton = document.getElementById('clusterButton');
+        
+        // Initialize the application
+        async function init() {
+            // Set up file upload
+            uploadArea.addEventListener('click', () => fileInput.click());
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#4CAF50';
+            });
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.style.borderColor = '#ccc';
+            });
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#ccc';
+                if (e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                    handleFileSelect();
+                }
+            });
+            
+            fileInput.addEventListener('change', handleFileSelect);
+            thresholdSlider.addEventListener('input', () => {
+                thresholdValue.textContent = thresholdSlider.value;
+            });
+            clusterButton.addEventListener('click', clusterImages);
+            
+            // Load the model
+            loadingDiv.style.display = 'block';
+            try {
+                model = await tf.loadGraphModel(MODEL_URL, { dtype: 'float32', pruneWeights: true });
+                console.log('Model loaded successfully');
+            } catch (error) {
+                console.error('Error loading model:', error);
+                clustersContainer.innerHTML = '<p style="color: red;">Error loading model. Please check console for details.</p>';
+            }
+            loadingDiv.style.display = 'none';
+        }
+        
+        // Handle file selection
+        function handleFileSelect() {
+            const files = Array.from(fileInput.files);
+            if (!files.length) return;
+            
+            // Clear previous results
+            allImages = [];
+            allEmbeddings = [];
+            inputImagesContainer.innerHTML = '';
+            processedImagesContainer.innerHTML = '';
+            clustersContainer.innerHTML = '';
+            
+            // Process each file
+            loadingDiv.style.display = 'block';
+            
+            const processPromises = files.map((file, index) => {
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = async (e) => {
+                        const imgData = {
+                            index: index,
+                            file: file,
+                            originalSrc: e.target.result,
+                            processedSrc: null,
+                            embedding: null
+                        };
+                        
+                        // Display original image
+                        const imgElement = document.createElement('img');
+                        imgElement.src = imgData.originalSrc;
+                        imgElement.style.maxWidth = '150px';
+                        imgElement.style.maxHeight = '150px';
+                        inputImagesContainer.appendChild(imgElement);
+                        
+                        // Process the image
+                        try {
+                            const result = await processImage(imgElement);
+                            imgData.processedSrc = result.processedSrc;
+                            imgData.embedding = result.embedding;
+                            
+                            // Display processed image
+                            const processedImg = document.createElement('img');
+                            processedImg.src = imgData.processedSrc;
+                            processedImg.style.maxWidth = '112px';
+                            processedImg.style.maxHeight = '112px';
+                            processedImagesContainer.appendChild(processedImg);
+                            
+                            allImages.push(imgData);
+                            allEmbeddings.push(imgData.embedding);
+                        } catch (error) {
+                            console.error(`Error processing image ${file.name}:`, error);
+                        }
+                        
+                        resolve();
+                    };
+                    reader.readAsDataURL(file);
+                });
+            });
+            
+            Promise.all(processPromises).then(() => {
+                loadingDiv.style.display = 'none';
+                if (allImages.length > 0) {
+                    clusterButton.style.display = 'inline-block';
+                }
+            });
+        }
+        
+        // Process the image through the model
+        async function processImage(imgElement) {
+            // Create a temporary image to work with
+            const img = new Image();
+            img.src = imgElement.src;
+            await new Promise((resolve) => {
+                img.onload = resolve;
+            });
+            
+            // Draw the image to canvas and resize to 112x112
+            const canvas = document.createElement('canvas');
+            canvas.width = INPUT_SHAPE[0];
+            canvas.height = INPUT_SHAPE[1];
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, INPUT_SHAPE[0], INPUT_SHAPE[1]);
+            
+            // Get image data and convert to tensor
+            const imageData = ctx.getImageData(0, 0, INPUT_SHAPE[0], INPUT_SHAPE[1]);
+            let tensor = tf.browser.fromPixels(imageData);
+            
+            // Preprocess
+            tensor = tensor.sub(127.5).mul(0.0078125); // (imms - 127.5) * 0.0078125
+            tensor = tensor.expandDims(0); // Add batch dimension
+            
+            // Run inference
+            const embeddings = await model.predict(tensor);
+            
+            // Get the embedding array
+            const embeddingArray = await embeddings.array();
+            const normalizedEmbedding = l2Normalize(embeddingArray[0]);
+            
+            // Clean up
+            tensor.dispose();
+            embeddings.dispose();
+            
+            return {
+                processedSrc: canvas.toDataURL(),
+                embedding: normalizedEmbedding
+            };
+        }
+        
+        // L2 normalization
+        function l2Normalize(vector) {
+            const norm = Math.sqrt(vector.reduce((sum, x) => sum + x * x, 0));
+            return vector.map(x => x / norm);
+        }
+        
+        // Calculate cosine similarity between two embeddings
+        function cosineSimilarity(a, b) {
+            let dotProduct = 0;
+            let normA = 0;
+            let normB = 0;
+            
+            for (let i = 0; i < a.length; i++) {
+                dotProduct += a[i] * b[i];
+                normA += a[i] * a[i];
+                normB += b[i] * b[i];
+            }
+            
+            return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+        }
+      
+				function clusterImages() {
+    const threshold = parseFloat(thresholdSlider.value);
+    const clusters = [];
+    const visited = new Set();
+    
+    // Create a distance matrix
+		function createDistanceMatrix(n) {
+			return Array(n).fill(0).map(() => Array(n).fill(0));
+		}
+    const distanceMatrix = createDistanceMatrix(allEmbeddings.length)
+
+    for (let i = 0; i < allEmbeddings.length; i++) {
+        for (let j = 0; j < allEmbeddings.length; j++) {
+            if (i === j) {
+                distanceMatrix[i][j] = 1; // Maximum similarity with self
+            } else if (j > i) {
+                const similarity = cosineSimilarity(allEmbeddings[i], allEmbeddings[j]);
+                distanceMatrix[i][j] = similarity;
+                distanceMatrix[j][i] = similarity;
+            }
+        }
+    }
+    
+    // Cluster using a simple greedy approach
+    for (let i = 0; i < allImages.length; i++) {
+        if (visited.has(i)) continue;
+        
+        const cluster = [i];
+        visited.add(i);
+        
+        // Find all similar images to this one
+        for (let j = i + 1; j < allImages.length; j++) {
+            if (!visited.has(j) && distanceMatrix[i][j] >= threshold) {
+                cluster.push(j);
+                visited.add(j);
+            }
+        }
+        
+        clusters.push(cluster);
+    }
+    
+    // Display the clusters
+    displayClusters(clusters);
+}
+
+function displayClusters(clusters) {
+    clustersContainer.innerHTML = '';
+    
+    if (clusters.length === 0) {
+        clustersContainer.innerHTML = '<p>No clusters found with the current threshold.</p>';
+        return;
+    }
+    
+    // Sort clusters by size (largest first)
+    clusters.sort((a, b) => b.length - a.length);
+    
+    clusters.forEach((cluster, clusterIndex) => {
+        const clusterDiv = document.createElement('div');
+        clusterDiv.className = 'cluster';
+        clusterDiv.style.margin = '20px 0';
+        clusterDiv.style.padding = '10px';
+        clusterDiv.style.border = '1px solid #ddd';
+        clusterDiv.style.borderRadius = '5px';
+        
+        const clusterHeader = document.createElement('h4');
+        clusterHeader.textContent = `Cluster ${clusterIndex + 1} (${cluster.length} images)`;
+        clusterDiv.appendChild(clusterHeader);
+        
+        const imagesContainer = document.createElement('div');
+        imagesContainer.style.display = 'flex';
+        imagesContainer.style.flexWrap = 'wrap';
+        imagesContainer.style.gap = '10px';
+        
+        cluster.forEach(imgIndex => {
+            const imgData = allImages[imgIndex];
+            
+            const imgWrapper = document.createElement('div');
+            imgWrapper.style.position = 'relative';
+            imgWrapper.style.display = 'inline-block';
+            
+            const imgElement = document.createElement('img');
+            imgElement.src = imgData.processedSrc;
+            imgElement.style.maxWidth = '112px';
+            imgElement.style.maxHeight = '112px';
+            imgElement.style.border = '2px solid #4CAF50';
+            
+            const imgLabel = document.createElement('div');
+            imgLabel.textContent = `Img ${imgIndex + 1}`;
+            imgLabel.style.textAlign = 'center';
+            imgLabel.style.fontSize = '12px';
+            imgLabel.style.marginTop = '5px';
+            
+            imgWrapper.appendChild(imgElement);
+            imgWrapper.appendChild(imgLabel);
+            imagesContainer.appendChild(imgWrapper);
+        });
+        
+        clusterDiv.appendChild(imagesContainer);
+        clustersContainer.appendChild(clusterDiv);
+    });
+    
+    // Add summary
+    const summary = document.createElement('p');
+    summary.textContent = `Found ${clusters.length} clusters with similarity threshold: ${thresholdSlider.value}`;
+    clustersContainer.insertBefore(summary, clustersContainer.firstChild);
+}
+
+		init();
+    </script>
+</body>
+</html>
+

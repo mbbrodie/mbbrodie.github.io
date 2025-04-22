@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass: Tweet Like Trump & Kanye</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #000000 100%);
+        }
+        .tweet-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        .tweet-card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #f8fafc;
+            white-space: nowrap;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #f8fafc; }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <i class="fab fa-twitter text-3xl text-blue-400"></i>
+                    <span class="font-bold text-xl">TweetMaster</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="hover:text-blue-300 transition">Features</a>
+                    <a href="#curriculum" class="hover:text-blue-300 transition">Curriculum</a>
+                    <a href="#testimonials" class="hover:text-blue-300 transition">Testimonials</a>
+                    <a href="#pricing" class="hover:text-blue-300 transition">Pricing</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 typewriter">How to Tweet Like Trump & Kanye</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Master the art of viral, controversial, and unforgettable tweets from the masters themselves.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105">
+                    Enroll Now <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button class="bg-transparent hover:bg-white hover:text-black text-white font-bold py-3 px-8 border-2 border-white rounded-full transition">
+                    <i class="fas fa-play-circle mr-2"></i> Watch Preview
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">What You'll Learn</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="tweet-card bg-gray-50 p-8 rounded-xl shadow-md">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-bolt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Provocative Messaging</h3>
+                    <p class="text-gray-600">Learn how to craft tweets that demand attention and dominate the news cycle, just like Trump's most controversial statements.</p>
+                </div>
+                <div class="tweet-card bg-gray-50 p-8 rounded-xl shadow-md">
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-brain text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Stream of Consciousness</h3>
+                    <p class="text-gray-600">Master Kanye's unfiltered, raw tweet style that creates authenticity and keeps followers constantly engaged.</p>
+                </div>
+                <div class="tweet-card bg-gray-50 p-8 rounded-xl shadow-md">
+                    <div class="text-red-500 mb-4">
+                        <i class="fas fa-fire text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Viral Controversy</h3>
+                    <p class="text-gray-600">Discover the fine line between offensive and attention-grabbing to maximize engagement and media coverage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Course Curriculum</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- Module 1 -->
+                <div class="mb-10">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                            <span class="font-bold">1</span>
+                        </div>
+                        <h3 class="text-2xl font-bold">Trump's Twitter Playbook</h3>
+                    </div>
+                    <div class="ml-14 pl-4 border-l-2 border-blue-200">
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                The Art of the All-Caps Tweet
+                            </h4>
+                            <p class="text-gray-600 mt-1">Learn when and how to use capital letters for maximum impact.</p>
+                        </div>
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Nickname Warfare
+                            </h4>
+                            <p class="text-gray-600 mt-1">Master the art of creating memorable nicknames for opponents.</p>
+                        </div>
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Fact vs. Alternative Fact
+                            </h4>
+                            <p class="text-gray-600 mt-1">Understand how to present opinions as facts to shape narratives.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Module 2 -->
+                <div class="mb-10">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                            <span class="font-bold">2</span>
+                        </div>
+                        <h3 class="text-2xl font-bold">Kanye's Twitter Philosophy</h3>
+                    </div>
+                    <div class="ml-14 pl-4 border-l-2 border-yellow-200">
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Unfiltered Thoughts
+                            </h4>
+                            <p class="text-gray-600 mt-1">Learn to tweet your stream of consciousness without hesitation.</p>
+                        </div>
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                The Power of Cryptic Messages
+                            </h4>
+                            <p class="text-gray-600 mt-1">Master the art of tweeting vague but intriguing statements.</p>
+                        </div>
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Breaking the Internet
+                            </h4>
+                            <p class="text-gray-600 mt-1">Strategies for creating tweets that crash servers and trend worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Module 3 -->
+                <div class="mb-10">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                            <span class="font-bold">3</span>
+                        </div>
+                        <h3 class="text-2xl font-bold">Advanced Tactics</h3>
+                    </div>
+                    <div class="ml-14 pl-4 border-l-2 border-red-200">
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Tweet Storms 101
+                            </h4>
+                            <p class="text-gray-600 mt-1">How to maintain attention through sequential controversial tweets.</p>
+                        </div>
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                The Apology Tweet
+                            </h4>
+                            <p class="text-gray-600 mt-1">When and how to walk back controversial statements (or not).</p>
+                        </div>
+                        <div class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+                            <h4 class="font-semibold">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Going Viral on Purpose
+                            </h4>
+                            <p class="text-gray-600 mt-1">Calculated strategies to ensure your tweets spread like wildfire.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tweet Generator -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">Try Our Trump/Kanye Tweet Generator</h2>
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2" for="tweet-style">
+                        Select Style:
+                    </label>
+                    <div class="flex space-x-4">
+                        <button id="trump-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition">
+                            <i class="fas fa-user-tie mr-2"></i> Trump Style
+                        </button>
+                        <button id="kanye-btn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full transition">
+                            <i class="fas fa-music mr-2"></i> Kanye Style
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2" for="tweet-topic">
+                        Enter Topic:
+                    </label>
+                    <input type="text" id="tweet-topic" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. The media, Fashion, Politics...">
+                </div>
+                <button id="generate-btn" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-4 rounded-full transition transform hover:scale-105 mb-6">
+                    Generate Viral Tweet <i class="fas fa-magic ml-2"></i>
+                </button>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <div id="tweet-result" class="text-gray-800 text-lg italic">
+                        Your generated tweet will appear here...
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <button id="copy-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full transition hidden">
+                            <i class="fas fa-copy mr-2"></i> Copy Tweet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">What Our Students Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="tweet-card bg-gray-50 p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"After taking this course, my tweets went from 2 likes to regularly getting hundreds of retweets. The Kanye-style stream of consciousness technique is game-changing!"</p>
+                </div>
+                <div class="tweet-card bg-gray-50 p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The Trump nickname module alone was worth the price. I now have my competitors scrambling every time I tweet about them!"</p>
+                </div>
+                <div class="tweet-card bg-gray-50 p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Jennifer L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"I was skeptical at first, but the viral tweet formulas work. My last controversial tweet got featured on CNN - exactly what my business needed!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Choose Your Plan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="tweet-card bg-white p-8 rounded-xl shadow-md border-2 border-gray-200">
+                    <h3 class="text-2xl font-bold text-center mb-4">Basic</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">$97</span>
+                        <span class="text-gray-600">/one-time</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Core Trump & Kanye techniques
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Tweet generator access
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-red-400 mr-2"></i>
+                            Advanced controversy strategies
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-red-400 mr-2"></i>
+                            Personal tweet review
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-full transition">
+                        Get Basic
+                    </button>
+                </div>
+                
+                <!-- Popular Plan -->
+                <div class="tweet-card bg-white p-8 rounded-xl shadow-lg border-2 border-blue-500 transform scale-105 relative">
+                    <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                        MOST POPULAR
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Pro</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">$197</span>
+                        <span class="text-gray-600">/one-time</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Everything in Basic
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Advanced controversy strategies
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            5 personal tweet reviews
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Private community access
+                        </li>
+                    </ul>
+                    <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-full transition transform hover:scale-105 pulse">
+                        Get Pro <i class="fas fa-crown ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- VIP Plan -->
+                <div class="tweet-card bg-white p-8 rounded-xl shadow-md border-2 border-gray-200">
+                    <h3 class="text-2xl font-bold text-center mb-4">VIP</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">$997</span>
+                        <span class="text-gray-600">/one-time</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Everything in Pro
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Monthly 1-on-1 coaching
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Viral tweet guarantee
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Press release when you go viral
+                        </li>
+                    </ul>
+                    <button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-full transition">
+                        Get VIP <i class="fas fa-gem ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-left">Is this course ethical?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-4 border-t border-gray-200">
+                        <p class="text-gray-600">This course teaches communication strategies used by some of the most effective (if controversial) tweeters in history. How you choose to apply these techniques is up to your personal ethics. We include a bonus module on responsible tweeting.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-left">How long do I have access to the course?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-4 border-t border-gray-200">
+                        <p class="text-gray-600">All plans include lifetime access to the course materials, including future updates. The VIP plan includes 12 months of personal coaching.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-left">What if I don't see results?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-4 border-t border-gray-200">
+                        <p class="text-gray-600">We offer a 30-day money-back guarantee on all plans. If you apply the techniques and don't see increased engagement, we'll refund your purchase.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-left">Can I get banned from Twitter for using these techniques?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-4 border-t border-gray-200">
+                        <p class="text-gray-600">While we teach controversial techniques, we also cover how to stay within Twitter's guidelines. The VIP plan includes specific training on pushing boundaries without crossing lines that could get you suspended.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Master the Art of Viral Tweets?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto">Join thousands of students who've transformed their Twitter presence and gained real influence.</p>
+            <button class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-4 px-12 rounded-full text-lg transition transform hover:scale-105">
+                Enroll Now <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fab fa-twitter text-blue-400 mr-2"></i> TweetMaster
+                    </h3>
+                    <p class="text-gray-400">Master the art of viral, controversial tweets from the masters themselves.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Course</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Curriculum</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mt-4">support@tweetmaster.com</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
+                <p>© 2023 TweetMaster. All rights reserved. (This is a parody site for educational purposes)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Tweet Generator
+        const trumpTweets = [
+            "Tremendous news about TOPIC! Nobody does it better than us. The haters will say it's fake, but they're just jealous!",
+            "TOPIC is a total disaster - just like the Fake News Media! We're going to fix it, believe me. #MAGA",
+            "Everyone is talking about TOPIC. I've been saying this for years - we need strong leadership on this! Weak politicians won't do it.",
+            "TOPIC? More like TOPIC-GATE! The biggest scandal in history and nobody is talking about it. SAD!",
+            "Just spoke to very important people about TOPIC. They all agree - nobody has ever seen anything like what we're doing. HISTORIC!"
+        ];
+
+        const kanyeTweets = [
+            "TOPIC ... I'm crying right now thinking about how beautiful TOPIC could be ... we need to free our minds",
+            "TOPIC is my new obsession. The universe spoke to me about TOPIC last night. This is God's work.",
+            "I think about TOPIC every morning when I wake up. The system doesn't want us to understand TOPIC. Wake up sheeple!",
+            "TOPIC TOPIC TOPIC TOPIC TOPIC TOPIC TOPIC TOPIC (this is performance art)",
+            "My mind is exploding with ideas about TOPIC. The creative process is painful but necessary. YEEZY SEASON APPROACHING"
+        ];
+
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            const topic = document.getElementById('tweet-topic').value.trim();
+            const trumpBtn = document.getElementById('trump-btn');
+            const kanyeBtn = document.getElementById('kanye-btn');
+            const resultDiv = document.getElementById('tweet-result');
+            const copyBtn = document.getElementById('copy-btn');
+            
+            if (!topic) {
+                resultDiv.textContent = "Please enter a topic first!";
+                return;
+            }
+            
+            let style, tweets;
+            
+            if (trumpBtn.classList.contains('bg-blue-500')) {
+                style = 'trump';
+                tweets = trumpTweets;
+            } else if (kanyeBtn.classList.contains('bg-yellow-500')) {
+                style = 'kanye';
+                tweets = kanyeTweets;
+            } else {
+                // If neither is selected, default to Trump
+                style = 'trump';
+                tweets = trumpTweets;
+                trumpBtn.classList.add('bg-blue-500', 'text-white');
+                trumpBtn.classList.remove('bg-white', 'text-blue-500');
+            }
+            
+            const randomTweet = tweets[Math.floor(Math.random() * tweets.length)];
+            const finalTweet = randomTweet.replace(/TOPIC/g, topic);
+            
+            resultDiv.textContent = finalTweet;
+            copyBtn.classList.remove('hidden');
+            
+            // Store the tweet for copying
+            copyBtn.dataset.tweet = finalTweet;
+        });
+
+        // Style selection
+        document.getElementById('trump-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            this.classList.add('bg-blue-500', 'text-white');
+            this.classList.remove('bg-white', 'text-blue-500');
+            
+            const kanyeBtn = document.getElementById('kanye-btn');
+            kanyeBtn.classList.remove('bg-yellow-500', 'text-white');
+            kanyeBtn.classList.add('bg-white', 'text-yellow-500');
+        });
+
+        document.getElementById('kanye-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            this.classList.add('bg-yellow-500', 'text-white');
+            this.classList.remove('bg-white', 'text-yellow-500');
+            
+            const trumpBtn = document.getElementById('trump-btn');
+            trumpBtn.classList.remove('bg-blue-500', 'text-white');
+            trumpBtn.classList.add('bg-white', 'text-blue-500');
+        });
+
+        // Copy tweet
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            const tweet = this.dataset.tweet;
+            navigator.clipboard.writeText(tweet).then(() => {
+                this.innerHTML = '<i class="fas fa-check mr-2"></i> Copied!';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-copy mr-2"></i> Copy Tweet';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

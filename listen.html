@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Browser speech recognition</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Browser speech recognition</h1>
+    </header>
+    <main>
+      <button id="button">Start listening</button>
+      <button id="copy-btn" disabled>Copy Transcription</button>
+      <button id="ask-btn" disabled>Ask</button>
+      <div id="result"></div>
+      <div id="response-container" hidden>
+        <p id="response"></p>
+        <button id="copy-response-btn" disabled>Copy Response</button>
+      </div>
+      <p id="message" hidden aria-hidden="true">
+        Your browser doesn't support Speech Recognition. Sorry.
+      </p>
+    </main>
+    <footer>
+      <p>Built with 🎙 by <a href="https://twitter.com/philnash">philnash</a></p>
+    </footer>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("button");
+        const copyBtn = document.getElementById("copy-btn");
+        const askBtn = document.getElementById("ask-btn");
+        const result = document.getElementById("result");
+        const responseContainer = document.getElementById("response-container");
+        const response = document.getElementById("response");
+        const copyResponseBtn = document.getElementById("copy-response-btn");
+        const main = document.getElementsByTagName("main")[0];
+        let listening = false;
+        let finalTranscript = "";
+
+        const SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (typeof SpeechRecognition !== "undefined") {
+          const recognition = new SpeechRecognition();
+
+          const stop = () => {
+            main.classList.remove("speaking");
+            recognition.stop();
+            button.textContent = "Start listening";
+            copyBtn.disabled = false;
+            askBtn.disabled = false;
+          };
+
+          const start = () => {
+            main.classList.add("speaking");
+            recognition.start();
+            button.textContent = "Stop listening";
+            copyBtn.disabled = true;
+            askBtn.disabled = true;
+            responseContainer.setAttribute("hidden", true);
+            response.textContent = "";
+            copyResponseBtn.disabled = true;
+          };
+
+          const onResult = (event) => {
+						/*
+            finalTranscript = "";
+            for (const res of event.results) {
+              finalTranscript += res[0].transcript;
+              const p = document.createElement("p");
+              p.textContent = res[0].transcript;
+              if (res.isFinal) {
+                p.classList.add("final");
+              }
+
+              result.appendChild(p);
+            }
+						*/
+            result.innerHTML = "";
+            for (const res of event.results) {
+							result.innerText += res[0].transcript
+							/*
+              const text = document.createTextNode(res[0].transcript);
+              const p = document.createElement("p");
+              if (res.isFinal) {
+                p.classList.add("final");
+              }
+              p.appendChild(text);
+              result.appendChild(p);
+							*/
+            }
+          };
+
+          recognition.continuous = true;
+          recognition.interimResults = true;
+          recognition.addEventListener("result", onResult);
+
+          button.addEventListener("click", (event) => {
+            listening ? stop() : start();
+            listening = !listening;
+						if (!listening) {
+							navigator.clipboard
+								.writeText(result.innerText)
+								.then(() => console.log("Transcription copied to clipboard!"))
+								.catch(() => alert("Failed to copy transcription."));
+						}
+          });
+
+          // Copy transcription button
+          copyBtn.addEventListener("click", () => {
+            navigator.clipboard
+              .writeText(result.innerText)
+              .then(() => console.log("Transcription copied to clipboard!"))
+              .catch(() => alert("Failed to copy transcription."));
+          });
+
+
+          // Ask button to send transcription to localhost:8080
+          askBtn.addEventListener("click", async () => {
+            try {
+              const res = await fetch("http://localhost:8080/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer no-key",
+                },
+								body: JSON.stringify({ "model": "Llama-3.2-3B-Instruct.F16.gguf", "messages": [{"role":"user", "content":result.textContent }] }),
+              });
+              const data = await res.json();
+              response.innerHTML= data["choices"][0]["message"]["content"] || "No response received.";
+              responseContainer.removeAttribute("hidden");
+              copyResponseBtn.disabled = false;
+            } catch (error) {
+              response.textContent = "Error fetching response.";
+              responseContainer.removeAttribute("hidden");
+              console.error(error);
+            }
+          });
+
+          // Copy response button
+          copyResponseBtn.addEventListener("click", () => {
+            navigator.clipboard
+              .writeText(response.textContent)
+              .then(() => console.log("Response copied to clipboard!"))
+              .catch(() => alert("Failed to copy response."));
+          });
+        } else {
+          button.remove();
+          const message = document.getElementById("message");
+          message.removeAttribute("hidden");
+          message.setAttribute("aria-hidden", "false");
+        }
+      });
+    </script>
+  </body>
+</html>
